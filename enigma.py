@@ -1,5 +1,4 @@
 from rotor import *
-from string import maketrans
 
 class Enigma:
   def __init__(self,ref,r3,r2,r1,setting='AAA',plugs = [],ringset=1):
@@ -22,7 +21,7 @@ class Enigma:
         alpha_out[ord(k)-ord('A')] = v
         alpha_out[ord(v)-ord('A')] = k
     
-    self.transtab = maketrans(alpha,"".join(alpha_out))
+    self.transtab = str.maketrans(alpha,"".join(alpha_out))
     
   def encipher(self,plaintext_in):
     ciphertext = ''

@@ -11,7 +11,7 @@ if __name__ == "__main__":
     r1 = sys.argv[3]
     r2 = sys.argv[4]
     r3 = sys.argv[5]
-    plugs_s = sys.argv[6]
+    #plugs_s = sys.argv[6]
     raw = sys.stdin.read(-1)
     seq = raw.upper()
     
@@ -44,4 +44,4 @@ if __name__ == "__main__":
             fres += res[i]
         
         i += 1
-    print fres
+    print(fres)
