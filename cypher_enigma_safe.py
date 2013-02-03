@@ -5,8 +5,7 @@ from rotor import *
 from enigma import *
 import sys
 
-"""
- A trivial and minimaliste CLI
+"""A trivial and minimaliste CLI.
 """
 
 if __name__ == "__main__":
@@ -35,16 +34,16 @@ if __name__ == "__main__":
             plugs.append((a,b))
 
     rotors = { \
-                "I":ROTOR_I,"II":ROTOR_II,"III":ROTOR_III,"IV":ROTOR_IV, \
-                "V":ROTOR_V,"VI":ROTOR_VI,"VII":ROTOR_VII \
-                }
+          "I":ROTOR_I,"II":ROTOR_II,"III":ROTOR_III,"IV":ROTOR_IV, \
+          "V":ROTOR_V,"VI":ROTOR_VI,"VII":ROTOR_VII \
+          }
     reflectors = { \
-                "A":ROTOR_Reflector_A,"B":ROTOR_Reflector_B, \
-                "C":ROTOR_Reflector_C \
-                }
+          "A":ROTOR_Reflector_A,"B":ROTOR_Reflector_B, \
+          "C":ROTOR_Reflector_C \
+          }
 
     engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], \
-                    rotors[r3], key, plugs)
+            rotors[r3], key, plugs)
     res = engr.encipher(seq)
     fres = ""
     for idx, char in enumerate(res):
