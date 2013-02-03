@@ -53,9 +53,9 @@ As a Python module:
         Model: Enigma 1
         Date: 1930
         Wiring: EKMFLGDQVZNTOWYHXUSPAIBRCJ
-    >>> res = engr.encipher("Hellow World!")
+    >>> res = engr.encipher("Hello World!")
     >>> print(res)
-    Rkmwng Tkuvk!
+    Rkmwn Irzdg!
 
 
 Command line:
