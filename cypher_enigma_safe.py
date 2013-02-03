@@ -8,13 +8,19 @@ import sys
 """A trivial and minimaliste CLI.
 """
 
+def usage():
+    print('echo "Hello World" | ./cypher_enigma_safe.py key ref rotor1 rotor2 rotor3')
+
 if __name__ == "__main__":
     # Point of entry in execution mode
-    key = sys.argv[1]
-    ref = sys.argv[2]
-    r1 = sys.argv[3]
-    r2 = sys.argv[4]
-    r3 = sys.argv[5]
+    try:
+        key = sys.argv[1]
+        ref = sys.argv[2]
+        r1 = sys.argv[3]
+        r2 = sys.argv[4]
+        r3 = sys.argv[5]
+    except:
+        usage()
     raw = sys.stdin.read(-1)
     seq = raw.upper()
 
