@@ -33,7 +33,8 @@ class Enigma(object):
 
     def encipher(self, plaintext_in):
         ciphertext = ''
-        plaintext = plaintext_in.translate(self.transtab)
+        plaintext_in_upper = plaintext_in.upper()
+        plaintext = plaintext_in_upper.translate(self.transtab)
         for c in plaintext:
             if self.rotor2.is_in_turnover_pos():
                 self.rotor2.notch()
@@ -54,7 +55,16 @@ class Enigma(object):
             t = self.rotor2.encipher_left(t)
             t = self.rotor1.encipher_left(t)
             ciphertext += t
-        return ciphertext.translate(self.transtab)
+
+        res = ciphertext.translate(self.transtab)
+
+        fres = ""
+        for idx, char in enumerate(res):
+            if plaintext_in[idx].islower():
+                fres += char.lower()
+            else:
+                fres += char
+        return fres
 
     def __str__(self):
         """
