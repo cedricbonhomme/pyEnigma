@@ -21,9 +21,9 @@ requires = []
 
 setup(
     name='pyEnigma',
-    version=requests.__version__,
+    #version=requests.__version__,
     description='Python Enigma cypher machine simulator.',
-    long_description=open('README.md').read()
+    long_description=open('README.md').read(),
     author='Christophe Goessen, Cédric Bonhomme',
     author_email='kimble.mandel@gmail.com',
     url='https://bitbucket.org/azmaeve/pyenigma',
