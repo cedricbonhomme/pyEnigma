@@ -1,4 +1,6 @@
-import sys
+#! /usr/bin/env python
+#-*- coding: utf-8 -*-
+
 
 class Reflector:
   def __init__(self,wiring = None,name=None,model=None,date=None):

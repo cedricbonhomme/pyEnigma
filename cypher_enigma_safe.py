@@ -1,6 +1,7 @@
 from rotor import *
 from enigma import *
 import sys
+
 """
  A trivial and minimaliste CLI
 """
