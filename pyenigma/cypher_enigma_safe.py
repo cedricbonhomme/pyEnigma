@@ -27,7 +27,6 @@ if __name__ == "__main__":
         usage()
         exit()
     raw = sys.stdin.read(-1)
-    seq = raw.upper()
 
     ct = 0
     a = None
@@ -55,11 +54,5 @@ if __name__ == "__main__":
 
     engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], \
             rotors[r3], key, plugs)
-    res = engr.encipher(seq)
-    fres = ""
-    for idx, char in enumerate(res):
-        if raw[idx].islower():
-            fres += char.lower()
-        else:
-            fres += char
-    print(fres)
+    res = engr.encipher(raw)
+    print(res)
