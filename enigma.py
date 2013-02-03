@@ -24,7 +24,12 @@ class Enigma(object):
             alpha_out[ord(k)-ord('A')] = v
             alpha_out[ord(v)-ord('A')] = k
 
-        self.transtab = str.maketrans(alpha, "".join(alpha_out))
+        try:
+            self.transtab = str.maketrans(alpha, "".join(alpha_out))
+        except:
+            # Python 2
+            from string import maketrans
+            self.transtab = maketrans(alpha,"".join(alpha_out))
 
     def encipher(self, plaintext_in):
         ciphertext = ''
