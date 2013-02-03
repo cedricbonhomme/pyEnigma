@@ -21,5 +21,5 @@ License
 
 Author
 ------
-[Christophe Goessen](https://bitbucket.org/azmaeve)
-[Cédric Bonhomme](http://cedricbonhomme.org/)
+* [Christophe Goessen](https://bitbucket.org/azmaeve) (main author)
+* [Cédric Bonhomme](http://cedricbonhomme.org/)
