@@ -10,10 +10,10 @@ import sys
 
 def usage():
     print("Usage:")
-    print('\techo "Hello World" | ./cypher_enigma_safe.py key ref rotor1 rotor2 rotor3')
+    print('\techo "Hello World" | ./cypher_enigma_safe.py ABC ref rotor1 rotor2 rotor3')
     print("\nExample:")
-    print('\t$ echo "Hello World" | ./cypher_enigma_safe.py secret B  I II IV')
-    print("\tXtrmk Sfjyu")
+    print('\t$ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV')
+    print("\tIajfb Sqguz")
 
 if __name__ == "__main__":
     # Point of entry in execution mode
@@ -37,6 +37,6 @@ if __name__ == "__main__":
           "C":ROTOR_Reflector_C \
           }
 
-    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], rotors[r3], key)
+    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], rotors[r3], key=key)
     res = engr.encipher(raw)
     print(res)

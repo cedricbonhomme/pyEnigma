@@ -7,7 +7,7 @@ class Enigma(object):
     """
     Represents an Enigma machine.
     """
-    def __init__(self, ref, r3, r2, r1, setting='AAA', plugs = [], ringset=1):
+    def __init__(self, ref, r3, r2, r1, key='AAA', ringset=1):
         """
         Initialization of the Enigma machine.
         """
@@ -16,9 +16,9 @@ class Enigma(object):
         self.rotor2 = r2
         self.rotor3 = r3
 
-        self.rotor1.state = setting[0]
-        self.rotor2.state = setting[1]
-        self.rotor3.state = setting[2]
+        self.rotor1.state = key[0]
+        self.rotor2.state = key[1]
+        self.rotor3.state = key[2]
         self.reflector.state = 'A'
         self.ringset = ringset
 
@@ -80,4 +80,4 @@ class Enigma(object):
         Reflector: %s
         Rotor 1: %s
         Rotor 2: %s
-        Rotor 3: %s""" % (self.reflector, self.r1, self.r2, self.r3)
+        Rotor 3: %s""" % (self.reflector, self.rotor1, self.rotor2, self.rotor3)

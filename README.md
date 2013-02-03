@@ -21,21 +21,49 @@ As a Python module:
     Python 3.2.3 (default, Oct 19 2012, 19:53:16) 
     [GCC 4.7.2] on linux2
     Type "help", "copyright", "credits" or "license" for more information.
-    >>> from pyenigma import rotor
-    >>> print(rotor.ROTOR_GR_III)
+    >>> from pyenigma.enigma import *
+    >>> from pyenigma.rotor import *
+    >>> print(ROTOR_GR_III)
 
         Name: III
         Model: German Railway (Rocket)
         Date: 7 February 1941
         Wiring: JVIUBHTCDYAKEQZPOSGXNRMWFL
     >>>
+    >>> engr = Enigma(ROTOR_Reflector_A, ROTOR_I, ROTOR_II, ROTOR_III, key="ABC")
+    >>> print(engr)
+
+        Reflector: 
+        Name: Reflector A
+        Model: None
+        Date: None
+        Wiring: EJMZALYXVBWFCRQUONTSPIKHGD
+        Rotor 1: 
+        Name: III
+        Model: Enigma 1
+        Date: 1930
+        Wiring: BDFHJLCPRTXVZNYEIWGAKMUSQO
+        Rotor 2: 
+        Name: II
+        Model: Enigma 1
+        Date: 1930
+        Wiring: AJDKSIRUXBLHWTMCQGZNPYFVOE
+        Rotor 3: 
+        Name: I
+        Model: Enigma 1
+        Date: 1930
+        Wiring: EKMFLGDQVZNTOWYHXUSPAIBRCJ
+    >>> res = engr.encipher("Hellow World!")
+    >>> print(res)
+    Rkmwng Tkuvk!
+
 
 Command line:
 
-    $ echo "Hello World" | ./cypher_enigma_safe.py secret B  I II V 
+    $ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV
     Vjpfw Ekdxj
 
-    $ echo "Vjpfw Ekdxj" | ./cypher_enigma_safe.py secret B  I II V
+    $ echo "Iajfb Sqguz" | ./cypher_enigma_safe.py ABC B  I II IV
     Hello World
 
 License
