@@ -4,6 +4,8 @@
 import os
 import sys
 
+import pyenigma
+
 try:
     from setuptools import setup
 except ImportError:
@@ -21,7 +23,7 @@ requires = []
 
 setup(
     name='pyEnigma',
-    #version=requests.__version__,
+    version=pyenigma.__version__,
     description='Python Enigma cypher machine simulator.',
     long_description=open('README.md').read(),
     author='Christophe Goessen, Cédric Bonhomme',
@@ -40,12 +42,9 @@ setup(
         'Natural Language :: English',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        # 'Programming Language :: Python :: 3.0',
-        'Programming Language :: Python :: 3.1',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
     ),
-) 
+)
