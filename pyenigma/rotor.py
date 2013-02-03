@@ -91,6 +91,13 @@ class Rotor(object):
     def __eq__(self, rotor):
         return self.name == rotor.name
 
+    def __str__(self):
+        return """
+        Name: %s
+        Model: %s
+        Date: %s
+        Wiring: %s""" % (self.name, self.model, self.date, self.wiring)
+
 # 1924 Rotors
 ROTOR_IC = Rotor(wiring="DMTWSILRUYQNKFEJCAZBPGXOHV", name="IC", model="Commercial Enigma A, B", date="1924")
 ROTOR_IIC = Rotor(wiring="HQZGPJTMOBLNCIFDYAWVEUSRKX", name="IIC", model="Commercial Enigma A, B", date="1924")
