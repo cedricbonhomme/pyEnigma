@@ -4,7 +4,13 @@
 from rotor import *
 
 class Enigma(object):
+    """
+    Represents an Enigma machine.
+    """
     def __init__(self, ref, r3, r2, r1, setting='AAA', plugs = [], ringset=1):
+        """
+        Initialization of the Enigma machine.
+        """
         self.reflector = ref
         self.rotor1 = r1
         self.rotor2 = r2
@@ -32,6 +38,9 @@ class Enigma(object):
             self.transtab = maketrans(alpha,"".join(alpha_out))
 
     def encipher(self, plaintext_in):
+        """
+        Encrypt 'plaintext_in'.
+        """
         ciphertext = ''
         plaintext_in_upper = plaintext_in.upper()
         plaintext = plaintext_in_upper.translate(self.transtab)
