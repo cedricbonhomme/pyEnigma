@@ -2,39 +2,36 @@
 #-*- coding: utf-8 -*-
 
 
-class Reflector:
-  def __init__(self,wiring = None,name=None,model=None,date=None):
+class Reflector(object):
+  def __init__(self, wiring = None, name=None, model=None, date=None):
     if wiring != None:
       self.wiring = wiring
     else:
       self.wiring = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-   
     self.name = name
-      
     self.model = model
-      
     self.date = date
-   
+
   def __getattr__(self,name):
     return self.__dict__[name]
-    
+
   def __setattr__(self,name,value):
     self.__dict__[name] = value
-   
+
   def encipher (self, key):
     shift = (ord(self.state) - ord('A'))
     index = (ord(key) - ord('A'))%26 # true index
     index = (index + shift)%26 # actual connector hit
-    
+
     letter = self.wiring[index] # rotor letter generated
     out = chr(ord('A')+(ord(letter) - ord('A') +26 - shift)%26) # actual output
     #return letter
     return out
-    
+
   def __eq__(self,rotor):
     return self.name == rotor.name
 
-class Rotor:
+class Rotor(object):
   def __init__(self,wiring = None,notchs =None,name=None,model=None,date=None,state="A",):
     if wiring != None:
       self.wiring = wiring
@@ -48,25 +45,21 @@ class Rotor:
     else:
       self.notchs = ""
       
-    self.name = name
-      
+    self.name = name      
     self.model = model
-      
     self.date = date
-      
     self.state = state
 
-   
   def __getattr__(self,name):
     return self.__dict__[name]
-    
+
   def __setattr__(self,name,value):
     self.__dict__[name] = value
     if name == 'wiring':
       self.rwiring = ["0"]*26
       for i in range(0,len(self.wiring)):
         self.rwiring[ord(self.wiring[i]) - ord('A')]= chr(ord('A')+i)
-   
+
   def encipher_right (self, key):
     shift = (ord(self.state) - ord('A'))
     index = (ord(key) - ord('A'))%26 # true index
@@ -76,7 +69,7 @@ class Rotor:
     out = chr(ord('A')+(ord(letter) - ord('A') +26 - shift)%26) # actual output
     #return letter
     return out
-  
+
   def encipher_left (self, key):
     shift = (ord(self.state) - ord('A')) 
     index = (ord(key) - ord('A'))%26
@@ -87,15 +80,15 @@ class Rotor:
     out = chr(ord('A')+(ord(letter) - ord('A') + 26 - shift)%26)
     #return letter
     return out
-  
+
   def notch (self, offset = 1):
     self.state = chr((ord(self.state) + offset -ord('A'))%26 +ord('A'))
     notchnext = self.state in self.notchs
     #return notchnext
-   
+
   def is_in_turnover_pos (self):
     return chr((ord(self.state) + 1 -ord('A'))%26 +ord('A')) in self.notchs
-    
+
   def __eq__(self,rotor):
     return self.name == rotor.name
 
@@ -138,4 +131,3 @@ ROTOR_Reflector_C = Reflector(wiring = "FVPJIAOYEDRZXWGCTKUQSBNMHL",name="Reflec
 ROTOR_Reflector_B_Thin = Reflector(wiring = "ENKQAUYWJICOPBLMDXZVFTHRGS",name="Reflector_B_Thin",model="M4 R1 (M3 + Thin)",date="1940")
 ROTOR_Reflector_C_Thin = Reflector(wiring = "RDOBJNTKVEHMLFCWZAXGYIPSUQ",name="Reflector_C_Thin",model="M4 R1 (M3 + Thin)",date="1940")
 ROTOR_ETW = Rotor(wiring = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",name="ETW",model="Enigma 1")
-

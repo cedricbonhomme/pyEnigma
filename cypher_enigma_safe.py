@@ -34,10 +34,12 @@ if __name__ == "__main__":
             ct =0
             plugs.append((a,b))
 
-    rotors = {"I":ROTOR_I,"II":ROTOR_II,"III":ROTOR_III,"IV":ROTOR_IV, \
+    rotors = { \
+                "I":ROTOR_I,"II":ROTOR_II,"III":ROTOR_III,"IV":ROTOR_IV, \
                 "V":ROTOR_V,"VI":ROTOR_VI,"VII":ROTOR_VII \
                 }
-    reflectors = {"A":ROTOR_Reflector_A,"B":ROTOR_Reflector_B, \
+    reflectors = { \
+                "A":ROTOR_Reflector_A,"B":ROTOR_Reflector_B, \
                 "C":ROTOR_Reflector_C \
                 }
 
