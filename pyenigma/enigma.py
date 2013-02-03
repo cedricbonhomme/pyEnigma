@@ -26,9 +26,6 @@ class Enigma(object):
         alpha_out = [" "] * 26
         for i in range(len(alpha)):
             alpha_out[i] = alpha[i]
-        for k,v in plugs:
-            alpha_out[ord(k)-ord('A')] = v
-            alpha_out[ord(v)-ord('A')] = k
 
         try:
             self.transtab = str.maketrans(alpha, "".join(alpha_out))

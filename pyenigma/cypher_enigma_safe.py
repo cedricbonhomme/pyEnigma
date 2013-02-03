@@ -28,21 +28,6 @@ if __name__ == "__main__":
         exit()
     raw = sys.stdin.read(-1)
 
-    ct = 0
-    a = None
-    b = None
-    plugs = []
-    for c in plugs:
-        if not c.isalpha():
-            continue
-        if ct == 0:
-            a = c.upper()
-            ct = 1
-        else:
-            b = c.upper()
-            ct =0
-            plugs.append((a,b))
-
     rotors = { \
           "I":ROTOR_I,"II":ROTOR_II,"III":ROTOR_III,"IV":ROTOR_IV, \
           "V":ROTOR_V,"VI":ROTOR_VI,"VII":ROTOR_VII \
@@ -52,7 +37,6 @@ if __name__ == "__main__":
           "C":ROTOR_Reflector_C \
           }
 
-    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], \
-            rotors[r3], key, plugs)
+    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], rotors[r3], key)
     res = engr.encipher(raw)
     print(res)
