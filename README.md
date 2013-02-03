@@ -61,7 +61,7 @@ As a Python module:
 Command line:
 
     $ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV
-    Vjpfw Ekdxj
+    Iajfb Sqguz
 
     $ echo "Iajfb Sqguz" | ./cypher_enigma_safe.py ABC B  I II IV
     Hello World
