@@ -55,3 +55,13 @@ class Enigma(object):
             t = self.rotor1.encipher_left(t)
             ciphertext += t
         return ciphertext.translate(self.transtab)
+
+    def __str__(self):
+        """
+        Pretty display.
+        """
+        return """
+        Reflector: %s
+        Rotor 1: %s
+        Rotor 2: %s
+        Rotor 3: %s""" % (self.reflector, self.r1, self.r2, self.r3)
