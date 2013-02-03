@@ -9,7 +9,11 @@ import sys
 """
 
 def usage():
-    print('echo "Hello World" | ./cypher_enigma_safe.py key ref rotor1 rotor2 rotor3')
+    print("Usage:")
+    print('\techo "Hello World" | ./cypher_enigma_safe.py key ref rotor1 rotor2 rotor3')
+    print("\nExample:")
+    print('\t$ echo "Hello World" | ./cypher_enigma_safe.py secret B  I II IV')
+    print("\tXtrmk Sfjyu")
 
 if __name__ == "__main__":
     # Point of entry in execution mode
@@ -21,6 +25,7 @@ if __name__ == "__main__":
         r3 = sys.argv[5]
     except:
         usage()
+        exit()
     raw = sys.stdin.read(-1)
     seq = raw.upper()
 
