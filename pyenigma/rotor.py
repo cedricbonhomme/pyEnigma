@@ -31,6 +31,16 @@ class Reflector(object):
     def __eq__(self,rotor):
         return self.name == rotor.name
 
+    def __str__(self):
+        """
+        Pretty display.
+        """
+        return """
+        Name: %s
+        Model: %s
+        Date: %s
+        Wiring: %s""" % (self.name, self.model, self.date, self.wiring)
+
 class Rotor(object):
     def __init__(self, wiring=None, notchs=None, name=None, model=None, date=None, state="A"):
         if wiring != None:
@@ -92,6 +102,9 @@ class Rotor(object):
         return self.name == rotor.name
 
     def __str__(self):
+        """
+        Pretty display.
+        """
         return """
         Name: %s
         Model: %s
