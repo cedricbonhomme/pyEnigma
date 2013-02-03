@@ -16,8 +16,7 @@ Installation
 Usage
 -----
 
-As a Python module
-''''''''''''''''''
+As a Python module:
 
     Python 3.2.3 (default, Oct 19 2012, 19:53:16) 
     [GCC 4.7.2] on linux2
@@ -31,8 +30,7 @@ As a Python module
         Wiring: JVIUBHTCDYAKEQZPOSGXNRMWFL
     >>>
 
-Command line
-''''''''''''
+Command line:
 
     $ echo "Hello World" | ./cypher_enigma_safe.py secret B  I II V 
     Vjpfw Ekdxj
