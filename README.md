@@ -21,16 +21,16 @@ As a Python module:
     Python 3.2.3 (default, Oct 19 2012, 19:53:16) 
     [GCC 4.7.2] on linux2
     Type "help", "copyright", "credits" or "license" for more information.
-    >>> from pyenigma.enigma import *
-    >>> from pyenigma.rotor import *
-    >>> print(ROTOR_GR_III)
+    >>> from pyenigma import enigma
+    >>> from pyenigma import rotor
+    >>> print(rotor.ROTOR_GR_III)
 
         Name: III
         Model: German Railway (Rocket)
         Date: 7 February 1941
         Wiring: JVIUBHTCDYAKEQZPOSGXNRMWFL
     >>>
-    >>> engr = Enigma(ROTOR_Reflector_A, ROTOR_I, ROTOR_II, ROTOR_III, key="ABC")
+    >>> engr = enigma.Enigma(rotor.ROTOR_Reflector_A, rotor.ROTOR_I, rotor.ROTOR_II, rotor.ROTOR_III, key="ABC")
     >>> print(engr)
 
         Reflector: 
