@@ -78,6 +78,9 @@ class Enigma(object):
         """
         return """
         Reflector: %s
+
         Rotor 1: %s
+
         Rotor 2: %s
+
         Rotor 3: %s""" % (self.reflector, self.rotor1, self.rotor2, self.rotor3)
