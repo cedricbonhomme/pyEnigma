@@ -7,7 +7,7 @@ class Enigma(object):
     """
     Represents an Enigma machine.
     """
-    def __init__(self, ref, r3, r2, r1, key="AAA", plugboard_settings="", ringset=1):
+    def __init__(self, ref, r3, r2, r1, key="AAA", plugs="", ringset=1):
         """
         Initialization of the Enigma machine.
         """
@@ -21,6 +21,8 @@ class Enigma(object):
         self.rotor3.state = key[2]
         self.reflector.state = 'A'
         self.ringset = ringset
+
+        plugboard_settings= [(elem[0], elem[1]) for elem in plugs.split(" ")]
 
         alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         alpha_out = [" "] * 26

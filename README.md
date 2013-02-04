@@ -30,7 +30,7 @@ As a Python module:
         Date: 7 February 1941
         Wiring: JVIUBHTCDYAKEQZPOSGXNRMWFL
     >>>
-    >>> engr = enigma.Enigma(rotor.ROTOR_Reflector_A, rotor.ROTOR_I, rotor.ROTOR_II, rotor.ROTOR_III, key="ABC")
+    >>> engr = enigma.Enigma(rotor.ROTOR_Reflector_A, rotor.ROTOR_I, rotor.ROTOR_II, rotor.ROTOR_III, key="ABC", plugs="AV BS CG DL FU HZ IN KM OW RX")
     >>> print(engr)
 
         Reflector: 
@@ -38,33 +38,35 @@ As a Python module:
         Model: None
         Date: None
         Wiring: EJMZALYXVBWFCRQUONTSPIKHGD
+
         Rotor 1: 
-        Name: III
-        Model: Enigma 1
-        Date: 1930
+        Name: III                                                                                                                                                                                                                                                  
+        Model: Enigma 1                                                                                                                                                                                                                                            
+        Date: 1930                                                                                                                                                                                                                                                 
         Wiring: BDFHJLCPRTXVZNYEIWGAKMUSQO
+
         Rotor 2: 
         Name: II
         Model: Enigma 1
         Date: 1930
         Wiring: AJDKSIRUXBLHWTMCQGZNPYFVOE
+
         Rotor 3: 
         Name: I
         Model: Enigma 1
         Date: 1930
         Wiring: EKMFLGDQVZNTOWYHXUSPAIBRCJ
-    >>> res = engr.encipher("Hello World!")
-    >>> print(res)
-    Rkmwn Irzdg!
-
+    >>> res = engr.encipher("Hello World")
+    >>> print res
+    Imweq Ltzda
 
 Command line:
 
-    $ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV "AV BS CG DL FU HZ IN KM OW RX"
-    Uvbyt Ugaoa
+    $ echo "Hello World" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+    Imweq Ltzda
 
-    $ echo "Uvbyt Ugaoa" | ./cypher_enigma_safe.py ABC B  I II IV "AV BS CG DL FU HZ IN KM OW RX"
-    Hello World
+    $ echo "Uvbyt Ugaoa" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+    Imweq Ltzda
 
 License
 -------
