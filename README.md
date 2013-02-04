@@ -60,10 +60,10 @@ As a Python module:
 
 Command line:
 
-    $ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV
-    Iajfb Sqguz
+    $ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV "AV BS CG DL FU HZ IN KM OW RX"
+    Uvbyt Ugaoa
 
-    $ echo "Iajfb Sqguz" | ./cypher_enigma_safe.py ABC B  I II IV
+    $ echo "Uvbyt Ugaoa" | ./cypher_enigma_safe.py ABC B  I II IV "AV BS CG DL FU HZ IN KM OW RX"
     Hello World
 
 License

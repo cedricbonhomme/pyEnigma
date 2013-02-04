@@ -23,10 +23,13 @@ if __name__ == "__main__":
         r1 = sys.argv[3]
         r2 = sys.argv[4]
         r3 = sys.argv[5]
+        plugs = sys.argv[6]
     except:
         usage()
         exit()
     raw = sys.stdin.read(-1)
+
+    plugboard_settings= [(elem[0], elem[1]) for elem in plugs.split(" ")]
 
     rotors = { \
           "I":ROTOR_I,"II":ROTOR_II,"III":ROTOR_III,"IV":ROTOR_IV, \
@@ -37,6 +40,6 @@ if __name__ == "__main__":
           "C":ROTOR_Reflector_C \
           }
 
-    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], rotors[r3], key=key)
+    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], rotors[r3], key=key, plugboard_settings=plugboard_settings)
     res = engr.encipher(raw)
     print(res)

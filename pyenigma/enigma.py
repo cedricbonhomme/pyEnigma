@@ -7,7 +7,7 @@ class Enigma(object):
     """
     Represents an Enigma machine.
     """
-    def __init__(self, ref, r3, r2, r1, key='AAA', ringset=1):
+    def __init__(self, ref, r3, r2, r1, key="AAA", plugboard_settings="", ringset=1):
         """
         Initialization of the Enigma machine.
         """
@@ -26,6 +26,9 @@ class Enigma(object):
         alpha_out = [" "] * 26
         for i in range(len(alpha)):
             alpha_out[i] = alpha[i]
+        for k, v in plugboard_settings:
+            alpha_out[ord(k)-ord('A')] = v
+            alpha_out[ord(v)-ord('A')] = k
 
         try:
             self.transtab = str.maketrans(alpha, "".join(alpha_out))
