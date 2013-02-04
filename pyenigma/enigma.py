@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 #-*- coding: utf-8 -*-
 
-from rotor import *
+from pyenigma.rotor import *
 
 class Enigma(object):
     """
