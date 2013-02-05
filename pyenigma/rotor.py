@@ -109,7 +109,8 @@ class Rotor(object):
         Name: %s
         Model: %s
         Date: %s
-        Wiring: %s""" % (self.name, self.model, self.date, self.wiring)
+        Wiring: %s
+        State: %s""" % (self.name, self.model, self.date, self.wiring, self.state)
 
 # 1924 Rotors
 ROTOR_IC = Rotor(wiring="DMTWSILRUYQNKFEJCAZBPGXOHV", name="IC", model="Commercial Enigma A, B", date="1924")
