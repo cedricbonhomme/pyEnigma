@@ -65,8 +65,8 @@ Command line:
     $ echo "Hello World" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
     Imweq Ltzda
 
-    $ echo "Uvbyt Ugaoa" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
-    Imweq Ltzda
+    $ echo "Imweq Ltzda" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+    Hello World
 
 License
 -------
