@@ -6,8 +6,13 @@ from pyenigma.rotor import *
 class Enigma(object):
     """
     Represents an Enigma machine.
+    Initializes an Enigma machine with these arguments:
+    - ref: reflector;
+    - r1, r2, r3: rotors;
+    - key: initial state of rotors;
+    - plus: plugboard settings.
     """
-    def __init__(self, ref, r3, r2, r1, key="AAA", plugs="", ringset=1):
+    def __init__(self, ref, r1, r2, r3, key="AAA", plugs="", ringset=1):
         """
         Initialization of the Enigma machine.
         """
