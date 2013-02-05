@@ -3,6 +3,9 @@
 
 
 class Reflector(object):
+    """
+    Represents a reflector.
+    """
     def __init__(self, wiring=None, name=None, model=None, date=None):
         if wiring != None:
             self.wiring = wiring
@@ -42,7 +45,13 @@ class Reflector(object):
         Wiring: %s""" % (self.name, self.model, self.date, self.wiring)
 
 class Rotor(object):
+    """
+    Represents a rotor.
+    """
     def __init__(self, wiring=None, notchs=None, name=None, model=None, date=None, state="A"):
+        """
+        Initialization of the rotor.
+        """
         if wiring != None:
             self.wiring = wiring
         else:
