@@ -13,8 +13,8 @@ def usage():
     print("Usage:")
     print('\techo "Hello World" | ./cypher_enigma_safe.py ABC ref rotor1 rotor2 rotor3 plugboard')
     print("\nExample:")
-    print('\t$ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV')
-    print("\tIajfb Sqguz")
+    print('\t$ echo "Hello World" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"')
+    print("\tImweq Ltzda")
 
 if __name__ == "__main__":
     # Point of entry in execution mode
