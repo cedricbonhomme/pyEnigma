@@ -1,16 +1,17 @@
 #! /usr/bin/env python
 #-*- coding: utf-8 -*-
 
+import sys
+
 from rotor import *
 from enigma import *
-import sys
 
 """A trivial and minimaliste CLI.
 """
 
 def usage():
     print("Usage:")
-    print('\techo "Hello World" | ./cypher_enigma_safe.py ABC ref rotor1 rotor2 rotor3')
+    print('\techo "Hello World" | ./cypher_enigma_safe.py ABC ref rotor1 rotor2 rotor3 plugboard')
     print("\nExample:")
     print('\t$ echo "Hello World" | ./cypher_enigma_safe.py ABC B  I II IV')
     print("\tIajfb Sqguz")
