@@ -40,32 +40,35 @@ As a Python module:
         Wiring: EJMZALYXVBWFCRQUONTSPIKHGD
 
         Rotor 1: 
-        Name: III                                                                                                                                                                                                                                                  
-        Model: Enigma 1                                                                                                                                                                                                                                            
-        Date: 1930                                                                                                                                                                                                                                                 
-        Wiring: BDFHJLCPRTXVZNYEIWGAKMUSQO
+        Name: I
+        Model: Enigma 1
+        Date: 1930
+        Wiring: EKMFLGDQVZNTOWYHXUSPAIBRCJ
+        State: A
 
         Rotor 2: 
         Name: II
         Model: Enigma 1
         Date: 1930
         Wiring: AJDKSIRUXBLHWTMCQGZNPYFVOE
+        State: B
 
         Rotor 3: 
-        Name: I
+        Name: III
         Model: Enigma 1
         Date: 1930
-        Wiring: EKMFLGDQVZNTOWYHXUSPAIBRCJ
+        Wiring: BDFHJLCPRTXVZNYEIWGAKMUSQO
+        State: C
     >>> res = engr.encipher("Hello World")
     >>> print res
-    Imweq Ltzda
+    Qgqop Vwoxn
 
 Command line:
 
     $ echo "Hello World" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
-    Imweq Ltzda
+    Qgqop Vwoxn
 
-    $ echo "Imweq Ltzda" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+    $ echo "Qgqop Vwoxn" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
     Hello World
 
 License
