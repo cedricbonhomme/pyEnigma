@@ -5,7 +5,7 @@ pyEnigma
 
 Presentation
 ------------
-pyEnigma has been tested with Python 2 -> Python 3.3.
+[pyEnigma](https://bitbucket.org/azmaeve/pyenigma/) has been tested with Python 2 -> Python 3.3.
 
 Installation
 ------------
