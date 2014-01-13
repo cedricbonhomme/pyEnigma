@@ -5,7 +5,7 @@ pyEnigma
 
 Presentation
 ------------
-Python 2 -> Python 3
+pyEnigma has been tested with Python 2 -> Python 3.3.
 
 Installation
 ------------
@@ -71,7 +71,7 @@ Command line:
 License
 -------
 
-pyEnigma is under license.
+pyEnigma is under [GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt) license.
 
 Author
 ------
