@@ -1,11 +1,10 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 from pyenigma.rotor import *
 
 class Enigma(object):
-    """
-    Represents an Enigma machine.
+    """Represents an Enigma machine.
     Initializes an Enigma machine with these arguments:
     - ref: reflector;
     - r1, r2, r3: rotors;
@@ -13,8 +12,7 @@ class Enigma(object):
     - plus: plugboard settings.
     """
     def __init__(self, ref, r1, r2, r3, key="AAA", plugs="", ringset=1):
-        """
-        Initialization of the Enigma machine.
+        """Initialization of the Enigma machine.
         """
         self.reflector = ref
         self.rotor1 = r1
@@ -45,8 +43,7 @@ class Enigma(object):
             self.transtab = maketrans(alpha,"".join(alpha_out))
 
     def encipher(self, plaintext_in):
-        """
-        Encrypt 'plaintext_in'.
+        """Encrypt 'plaintext_in'.
         """
         ciphertext = ''
         plaintext_in_upper = plaintext_in.upper()
@@ -83,8 +80,7 @@ class Enigma(object):
         return fres
 
     def __str__(self):
-        """
-        Pretty display.
+        """Pretty display.
         """
         return """
         Reflector: %s
