@@ -1,10 +1,10 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 import sys
 
-from rotor import *
-from enigma import *
+from pyenigma.rotor import *
+from pyenigma.enigma import *
 
 """A trivial and minimaliste CLI.
 """
