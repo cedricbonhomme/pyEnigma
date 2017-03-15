@@ -4,6 +4,7 @@ MANIFEST.in
 README.rst
 setup.cfg
 setup.py
+bin/enigma
 pyEnigma.egg-info/PKG-INFO
 pyEnigma.egg-info/SOURCES.txt
 pyEnigma.egg-info/dependency_links.txt

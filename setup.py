@@ -15,6 +15,10 @@ packages = [
     'pyenigma'
 ]
 
+scripts = [
+    'bin/enigma'
+]
+
 requires = []
 
 with open('README.rst', 'r') as f:
@@ -33,6 +37,7 @@ setup(
     packages=packages,
     package_dir={'pyenigma': 'pyenigma'},
     include_package_data=True,
+    scripts=scripts,
     install_requires=requires,
     license='GPLv3',
     zip_safe=False,

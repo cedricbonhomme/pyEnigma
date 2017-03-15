@@ -77,10 +77,10 @@ Command line:
 
 .. code:: bash
 
-    $ echo "Hello World" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+    $ echo "Hello World" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
     Qgqop Vwoxn
 
-    $ echo "Qgqop Vwoxn" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+    $ echo "Qgqop Vwoxn" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
     Hello World
 
 
