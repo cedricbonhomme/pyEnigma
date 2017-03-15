@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.5"
+
+script:
+  - nosetests --with-coverage --cover-package=pyenigma
+
+after_success:
+  - coveralls

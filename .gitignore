@@ -1,0 +1,32 @@
+# use glob syntax
+syntax: glob
+
+*.elc
+*.pyc
+*~
+*.db
+
+.idea/
+
+build/*
+dist/*
+
+.coverage
+
+docs/_build
+
+# Emacs
+eproject.cfg
+
+# Temporary files (vim backups)
+*.swp
+
+# Log files:
+*.log
+
+# Vagrant:
+.vagrant/
+
+# Virtualenv
+venv
+build
