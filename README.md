@@ -3,6 +3,9 @@ pyEnigma
 
 [![Build](https://img.shields.io/travis/cedricbonhomme/pyEnigma/master.svg?style=flat-square)](https://travis-ci.org/cedricbonhomme/pyEnigma)
 
+[![Coverage](https://img.shields.io/coveralls/cedricbonhomme/pyEnigma/master.svg?style=flat-square)](https://coveralls.io/github/cedricbonhomme/pyEnigma?branch=master)
+
+
 #### Python Enigma cypher machine simulator.
 
 Presentation
