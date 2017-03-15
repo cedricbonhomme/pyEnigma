@@ -39,6 +39,7 @@ if __name__ == "__main__":
           "C":ROTOR_Reflector_C \
           }
 
-    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2], rotors[r3], key=key, plugs=plugs)
+    engr = Enigma(reflectors[ref], rotors[r1], rotors[r2],
+                    rotors[r3], key=key, plugs=plugs)
     res = engr.encipher(raw)
     print(res)
