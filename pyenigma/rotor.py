@@ -1,10 +1,9 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 
 class Reflector(object):
-    """
-    Represents a reflector.
+    """Represents a reflector.
     """
     def __init__(self, wiring=None, name=None, model=None, date=None):
         if wiring != None:
@@ -35,8 +34,7 @@ class Reflector(object):
         return self.name == rotor.name
 
     def __str__(self):
-        """
-        Pretty display.
+        """Pretty display.
         """
         return """
         Name: %s
@@ -45,8 +43,7 @@ class Reflector(object):
         Wiring: %s""" % (self.name, self.model, self.date, self.wiring)
 
 class Rotor(object):
-    """
-    Represents a rotor.
+    """Represents a rotor.
     """
     def __init__(self, wiring=None, notchs=None, name=None, model=None, date=None, state="A"):
         """
@@ -82,7 +79,7 @@ class Rotor(object):
         shift = (ord(self.state) - ord('A'))
         index = (ord(key) - ord('A'))%26 # true index
         index = (index + shift)%26 # actual connector hit
-    
+
         letter = self.wiring[index] # rotor letter generated
         out = chr(ord('A')+(ord(letter) - ord('A') +26 - shift)%26) # actual output
         #return letter

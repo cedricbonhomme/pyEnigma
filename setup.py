@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 import os
@@ -27,7 +27,7 @@ setup(
     description='Python Enigma cypher machine simulator.',
     long_description=open('README.md').read(),
     author='Christophe Goessen, Cédric Bonhomme',
-    author_email='kimble.mandel@gmail.com',
+    author_email='cedric@cedricbonhomme.org',
     url='https://bitbucket.org/azmaeve/pyenigma',
     packages=packages,
     #package_data={'': ['LICENSE', 'NOTICE'], 'pyenigma': ['*.pem']},
