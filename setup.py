@@ -11,30 +11,30 @@ try:
 except ImportError:
     from distutils.core import setup
 
-if sys.argv[-1] == 'publish':
-    os.system('python setup.py sdist upload')
-    sys.exit()
-
 packages = [
     'pyenigma'
 ]
 
 requires = []
 
+with open('README.rst', 'r') as f:
+    readme = f.read()
+with open('CHANGELOG.rst', 'r') as f:
+    changelog = f.read()
+
 setup(
     name='pyEnigma',
     version=pyenigma.__version__,
     description='Python Enigma cypher machine simulator.',
-    long_description=open('README.md').read(),
+    long_description=readme + '\n\n' + changelog,
     author='Christophe Goessen, Cédric Bonhomme',
     author_email='cedric@cedricbonhomme.org',
     url='https://github.com/cedricbonhomme/pyEnigma',
     packages=packages,
-    #package_data={'': ['LICENSE', 'NOTICE'], 'pyenigma': ['*.pem']},
     package_dir={'pyenigma': 'pyenigma'},
     include_package_data=True,
     install_requires=requires,
-    license=open('COPYING').read(),
+    license='GPLv3',
     zip_safe=False,
     classifiers=(
         'Development Status :: 5 - Production/Stable',

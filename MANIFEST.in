@@ -1,0 +1,4 @@
+#Misc
+include COPYING
+include README.rst
+include CHANGELOG.rst

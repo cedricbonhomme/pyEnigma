@@ -1,28 +1,31 @@
 pyEnigma
 ========
 
-[![Build](https://img.shields.io/travis/cedricbonhomme/pyEnigma/master.svg?style=flat-square)](https://travis-ci.org/cedricbonhomme/pyEnigma)
-[![Coverage](https://img.shields.io/coveralls/cedricbonhomme/pyEnigma/master.svg?style=flat-square)](https://coveralls.io/github/cedricbonhomme/pyEnigma?branch=master)
+.. image:: https://img.shields.io/travis/cedricbonhomme/pyEnigma/master.svg?style=flat-square
+    :target: https://travis-ci.org/cedricbonhomme/pyEnigma
+
+.. image:: https://img.shields.io/coveralls/cedricbonhomme/pyEnigma/master.svg?style=flat-square
+   :target: https://coveralls.io/github/cedricbonhomme/pyEnigma?branch=master
 
 
-#### Python Enigma cypher machine simulator.
-
-Presentation
-------------
-[pyEnigma](https://github.com/cedricbonhomme/pyEnigma) has been tested with Python 2 -> Python 3.3.
+`pyEnigma <https://github.com/cedricbonhomme/pyEnigma>`_, a  Python Enigma
+cypher machine simulator.
 
 
 Installation
 ------------
 
-    $ cd pyenigma
-    $ sudo python setup.py install
+.. code:: bash
+
+    $ sudo pip install pyenigma
 
 
 Usage
 -----
 
 As a Python module:
+
+.. code:: python
 
     Python 3.5.2 (default, Oct 20 2016, 10:10:10)
     [GCC 6.2.0 20161005] on linux
@@ -72,6 +75,8 @@ As a Python module:
 
 Command line:
 
+.. code:: bash
+
     $ echo "Hello World" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
     Qgqop Vwoxn
 
@@ -82,11 +87,11 @@ Command line:
 License
 -------
 
-pyEnigma is under [GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt) license.
+pyEnigma is under `GPLv3 <http://www.gnu.org/licenses/gpl-3.0.txt>`_ license.
 
 
 Author
 ------
 
-* [Christophe Goessen](https://bitbucket.org/azmaeve) (main author)
-* [Cédric Bonhomme](https://www.cedricbonhomme.org)
+* `Christophe Goessen <https://github.com/cgoessen>`_ (initial author)
+* `Cédric Bonhomme <https://www.cedricbonhomme.org>`_
