@@ -1,6 +1,8 @@
 pyEnigma
 ========
 
+[![Build](https://img.shields.io/travis/cedricbonhomme/pyEnigma/master.svg?style=flat-square)](https://travis-ci.org/cedricbonhomme/pyEnigma)
+
 #### Python Enigma cypher machine simulator.
 
 Presentation
