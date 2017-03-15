@@ -24,8 +24,8 @@ Usage
 
 As a Python module:
 
-    Python 3.2.3 (default, Oct 19 2012, 19:53:16)
-    [GCC 4.7.2] on linux2
+    Python 3.5.2 (default, Oct 20 2016, 10:10:10)
+    [GCC 6.2.0 20161005] on linux
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyenigma import enigma
     >>> from pyenigma import rotor
