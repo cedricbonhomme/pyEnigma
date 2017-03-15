@@ -2,7 +2,6 @@ pyEnigma
 ========
 
 [![Build](https://img.shields.io/travis/cedricbonhomme/pyEnigma/master.svg?style=flat-square)](https://travis-ci.org/cedricbonhomme/pyEnigma)
-
 [![Coverage](https://img.shields.io/coveralls/cedricbonhomme/pyEnigma/master.svg?style=flat-square)](https://coveralls.io/github/cedricbonhomme/pyEnigma?branch=master)
 
 
@@ -10,7 +9,7 @@ pyEnigma
 
 Presentation
 ------------
-[pyEnigma](https://bitbucket.org/azmaeve/pyenigma/) has been tested with Python 2 -> Python 3.3.
+[pyEnigma](https://github.com/cedricbonhomme/pyEnigma) has been tested with Python 2 -> Python 3.3.
 
 
 Installation
@@ -70,6 +69,7 @@ As a Python module:
     >>> print res
     Qgqop Vwoxn
 
+
 Command line:
 
     $ echo "Hello World" | ./cypher_enigma_safe.py ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
@@ -87,5 +87,6 @@ pyEnigma is under [GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt) license.
 
 Author
 ------
+
 * [Christophe Goessen](https://bitbucket.org/azmaeve) (main author)
 * [Cédric Bonhomme](https://www.cedricbonhomme.org)

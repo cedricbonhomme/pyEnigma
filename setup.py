@@ -28,7 +28,7 @@ setup(
     long_description=open('README.md').read(),
     author='Christophe Goessen, Cédric Bonhomme',
     author_email='cedric@cedricbonhomme.org',
-    url='https://bitbucket.org/azmaeve/pyenigma',
+    url='https://github.com/cedricbonhomme/pyEnigma',
     packages=packages,
     #package_data={'': ['LICENSE', 'NOTICE'], 'pyenigma': ['*.pem']},
     package_dir={'pyenigma': 'pyenigma'},
