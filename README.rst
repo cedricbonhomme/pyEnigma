@@ -1,6 +1,15 @@
 pyEnigma
 ========
 
+.. image:: https://img.shields.io/pypi/pyversions/pyenigma.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/pyenigma
+
+.. image:: https://img.shields.io/pypi/v/pyenigma.svg?style=flat-square
+    :target: https://github.com/cedricbonhomme/pyenigma/releases/latest
+
+.. image:: https://img.shields.io/pypi/l/pyenigma.svg?style=flat-square
+    :target: https://www.gnu.org/licenses/gpl-3.0.html
+
 .. image:: https://img.shields.io/travis/cedricbonhomme/pyEnigma/master.svg?style=flat-square
     :target: https://travis-ci.org/cedricbonhomme/pyEnigma
 
@@ -23,7 +32,8 @@ Installation
 Usage
 -----
 
-As a Python module:
+As a Python library
+'''''''''''''''''''
 
 .. code:: python
 
@@ -39,8 +49,10 @@ As a Python module:
         Date: 7 February 1941
         Wiring: JVIUBHTCDYAKEQZPOSGXNRMWFL
     >>>
-    >>> engr = enigma.Enigma(rotor.ROTOR_Reflector_A, rotor.ROTOR_I, rotor.ROTOR_II, rotor.ROTOR_III, key="ABC", plugs="AV BS CG DL FU HZ IN KM OW RX")
-    >>> print(engr)
+    >>> engine = enigma.Enigma(rotor.ROTOR_Reflector_A, rotor.ROTOR_I,
+                                    rotor.ROTOR_II, rotor.ROTOR_III, key="ABC",
+                                    plugs="AV BS CG DL FU HZ IN KM OW RX")
+    >>> print(engine)
 
         Reflector:
         Name: Reflector A
@@ -68,12 +80,13 @@ As a Python module:
         Date: 1930
         Wiring: BDFHJLCPRTXVZNYEIWGAKMUSQO
         State: C
-    >>> res = engr.encipher("Hello World")
-    >>> print res
+    >>> secret = engine.encipher("Hello World")
+    >>> print(secret)
     Qgqop Vwoxn
 
 
-Command line:
+As a program
+''''''''''''
 
 .. code:: bash
 
