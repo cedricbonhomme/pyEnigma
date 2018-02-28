@@ -35,8 +35,8 @@ As a Python library
 
 .. code:: python
 
-    Python 3.5.2 (default, Oct 20 2016, 10:10:10)
-    [GCC 6.2.0 20161005] on linux
+    Python 3.6.4 (default, Feb 23 2018, 13:45:58)
+    [GCC 7.2.0] on linux
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyenigma import enigma
     >>> from pyenigma import rotor
