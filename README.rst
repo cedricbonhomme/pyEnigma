@@ -21,19 +21,17 @@ pyEnigma
 cypher machine simulator.
 
 
-Installation
-------------
-
-.. code:: bash
-
-    $ sudo pip install pyenigma
-
-
 Usage
 -----
 
 As a Python library
 '''''''''''''''''''
+
+.. code:: bash
+
+    $ pipenv install pyenigma
+    ✨ 🐍✨
+
 
 .. code:: python
 
@@ -87,6 +85,12 @@ As a Python library
 
 As a program
 ''''''''''''
+
+.. code:: bash
+
+    $ pipsi install pyenigma
+    ✨ 🍰✨
+
 
 .. code:: bash
 
