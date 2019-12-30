@@ -16,7 +16,8 @@ def usage():
     print('\t$ echo "Hello World" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"')
     print("\tImweq Ltzda")
 
-if __name__ == "__main__":
+
+def main():
     # Point of entry in execution mode
     try:
         key = sys.argv[1]
