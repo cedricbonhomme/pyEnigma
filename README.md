@@ -23,9 +23,15 @@ $ poetry install pyenigma
 
 Then you can use it in your program:
 
+```bash
+$ poetry shell
+(pyenigma-X0xzv6Ge-py3.8) $
+(pyenigma-X0xzv6Ge-py3.8) $ python
+```
+
 ```python
-Python 3.6.4 (default, Feb 23 2018, 13:45:58)
-[GCC 7.2.0] on linux
+Python 3.8.0 (default, Dec 11 2019, 21:43:13)
+[GCC 9.2.1 20191008] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from pyenigma import enigma
 >>> from pyenigma import rotor
