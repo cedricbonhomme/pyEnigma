@@ -15,9 +15,13 @@ https://todo.sr.ht/~cedric/pyenigma
 
 ### As a Python library
 
+You can install pyEnigma with Poetry.
+
 ```bash
 $ poetry install pyenigma
 ```
+
+Then you can use it in your program:
 
 ```python
 Python 3.6.4 (default, Feb 23 2018, 13:45:58)
@@ -70,10 +74,13 @@ Qgqop Vwoxn
 
 ### As a program
 
+Install pyEnigma system wide with pipx:
+
 ```bash
 $ pipx install pyenigma
 ```
 
+Then you can use the command line interface:
 
 ```bash
 $ echo "Hello World" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
