@@ -6,6 +6,9 @@
 [pyEnigma](https://git.sr.ht/~cedric/pyenigma), a  Python Enigma cypher machine
 simulator.
 
+For reporting issues, visit the tracker here:
+https://todo.sr.ht/~cedric/pyenigma
+
 
 ## Usage
 
