@@ -1,5 +1,6 @@
 ## Release History
 
+
 ### 0.2.2 (2019-12-30)
 
 * pyEnigma is ready for use with poetry.
