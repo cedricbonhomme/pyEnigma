@@ -3,7 +3,7 @@
 [![builds.sr.ht status](https://builds.sr.ht/~cedric/pyenigma.svg)](https://builds.sr.ht/~cedric/pyenigma)
 
 
-[pyEnigma](https://git.sr.ht/~cedric/pyenigma), a  Python Enigma cypher machine
+[pyEnigma](https://sr.ht/~cedric/pyenigma), a  Python Enigma cypher machine
 simulator.
 
 For reporting issues, visit the tracker here:

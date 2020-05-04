@@ -10,7 +10,7 @@ license = "GPL-3.0-or-later"
 
 readme = "README.md"
 
-homepage = "https://git.sr.ht/~cedric/pyenigma"
+homepage = "https://sr.ht/~cedric/pyenigma"
 repository = "https://git.sr.ht/~cedric/pyenigma"
 
 keywords = ["cryptography", "security"]
