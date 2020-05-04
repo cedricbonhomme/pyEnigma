@@ -120,8 +120,8 @@ python-versions = "*"
 version = "3.7.4.2"
 
 [metadata]
-content-hash = "e408da79e8942e1b73593d8448a09a1ed37f8b25a068a96f99e5569f1a9b0731"
-python-versions = "^3.7"
+content-hash = "d1358cc207a621914521699890a9cca39e136f970b76bd596925f8ef327d707e"
+python-versions = "^3.6"
 
 [metadata.files]
 coverage = [

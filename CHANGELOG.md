@@ -1,6 +1,11 @@
 ## Release History
 
 
+### 0.2.4 (2020-01-27)
+
+* Python minimal version is now 3.6.
+
+
 ### 0.2.3 (2019-12-30)
 
 * fix command line interface.

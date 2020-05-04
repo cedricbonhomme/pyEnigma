@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyenigma"
-version = "0.2.3"
+version = "0.2.4"
 description = "Python Enigma cypher machine simulator."
 authors = [
     "Cédric Bonhomme <cedric@cedricbonhomme.org>",
@@ -37,7 +37,7 @@ include = [
 enigma = "bin.enigma:main"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.750"
