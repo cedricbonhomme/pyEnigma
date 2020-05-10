@@ -75,7 +75,7 @@ Type "help", "copyright", "credits" or "license" for more information.
     State: C
 >>> secret = engine.encipher("Hello World")
 >>> print(secret)
-Qgqop Vwoxn
+Qgqop Vyzxp
 ```
 
 ### As a program
@@ -90,9 +90,9 @@ Then you can use the command line interface:
 
 ```bash
 $ echo "Hello World" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
-Qgqop Vwoxn
+Qgqop Vyzxp
 
-$ echo "Qgqop Vwoxn" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+$ echo "Qgqop Vyzxp" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
 Hello World
 ```
 

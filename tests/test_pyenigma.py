@@ -55,7 +55,7 @@ class TestpyEnigma(unittest.TestCase):
                         key=self.key, plugs=self.plugs)
         secret = engr.encipher(message)
 
-        self.assertEqual(secret, 'Qgqop Vwoxn')
+        self.assertEqual(secret, 'Qgqop Vyzxp')
 
 
 if __name__ == '__main__':
