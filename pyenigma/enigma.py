@@ -11,7 +11,7 @@ class Enigma(object):
     - key: initial state of rotors;
     - plus: plugboard settings.
     """
-    def __init__(self, ref, r1, r2, r3, key="AAA", plugs="", ringset=1):
+    def __init__(self, ref, r1, r2, r3, key="AAA", plugs="", ring="AAA"):
         """Initialization of the Enigma machine.
         """
         self.reflector = ref
@@ -22,10 +22,12 @@ class Enigma(object):
         self.rotor1.state = key[0]
         self.rotor2.state = key[1]
         self.rotor3.state = key[2]
+        self.rotor1.ring = ring[0]
+        self.rotor2.ring = ring[1]
+        self.rotor3.ring = ring[2]
         self.reflector.state = 'A'
-        self.ringset = ringset
 
-        plugboard_settings= [(elem[0], elem[1]) for elem in plugs.split(" ")]
+        plugboard_settings= [(elem[0], elem[1]) for elem in plugs.split()]
 
         alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         alpha_out = [" "] * 26

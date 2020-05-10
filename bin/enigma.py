@@ -40,7 +40,10 @@ def main():
           "C":ROTOR_Reflector_C \
           }
 
+    if len(key) == 3:  # add the default ringstellung
+        key += "-AAA"
+
     engr = Enigma(reflectors[ref], rotors[r1], rotors[r2],
-                    rotors[r3], key=key, plugs=plugs)
+                  rotors[r3], key=key[:3], plugs=plugs, ring=key[4:7])
     res = engr.encipher(raw)
     print(res)

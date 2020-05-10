@@ -42,7 +42,7 @@ class Reflector(object):
 class Rotor(object):
     """Represents a rotor.
     """
-    def __init__(self, wiring=None, notchs=None, name=None, model=None, date=None, state="A"):
+    def __init__(self, wiring=None, notchs=None, name=None, model=None, date=None, state="A", ring="A"):
         """
         Initialization of the rotor.
         """
@@ -61,6 +61,7 @@ class Rotor(object):
         self.model = model
         self.date = date
         self.state = state
+        self.ring = ring
 
     def __setattr__(self, name, value):
         self.__dict__[name] = value
@@ -70,7 +71,7 @@ class Rotor(object):
                 self.rwiring[ord(self.wiring[i]) - ord('A')] = chr(ord('A')+i)
 
     def encipher_right(self, key):
-        shift = (ord(self.state) - ord('A'))
+        shift = (ord(self.state) - ord(self.ring))
         index = (ord(key) - ord('A'))%26 # true index
         index = (index + shift)%26 # actual connector hit
 
@@ -80,7 +81,7 @@ class Rotor(object):
         return out
 
     def encipher_left(self, key):
-        shift = (ord(self.state) - ord('A'))
+        shift = (ord(self.state) - ord(self.ring))
         index = (ord(key) - ord('A'))%26
         index = (index + shift)%26
         #index = (index )%26
@@ -136,7 +137,7 @@ ROTOR_ETW_K = Rotor(wiring="QWERTZUIOASDFGHJKPYXCVBNML", name="ETW-K", model="Sw
 ROTOR_I = Rotor(wiring="EKMFLGDQVZNTOWYHXUSPAIBRCJ",notchs="R", name="I", model="Enigma 1", date="1930")
 ROTOR_II = Rotor(wiring="AJDKSIRUXBLHWTMCQGZNPYFVOE",notchs="F", name="II", model="Enigma 1", date="1930")
 ROTOR_III = Rotor(wiring="BDFHJLCPRTXVZNYEIWGAKMUSQO",notchs="W", name="III", model="Enigma 1", date="1930")
-ROTOR_IV = Rotor(wiring="ESOVPZJAYQUIRHXLNFTGKDCMWB",notchs="K", name="VI", model="M3 Army", date="December 1938")
+ROTOR_IV = Rotor(wiring="ESOVPZJAYQUIRHXLNFTGKDCMWB",notchs="K", name="IV", model="M3 Army", date="December 1938")
 ROTOR_V = Rotor(wiring="VZBRGITYUPSDNHLXAWMJQOFECK",notchs="A", name="V", model="M3 Army", date="December 1938")
 ROTOR_VI = Rotor(wiring="JPGVOUMFYQBENHZRDKASXLICTW",notchs="AN", name="VI", model="M3 & M4 Naval(February 1942)", date="1939")
 ROTOR_VII = Rotor(wiring="NZJHGRCXMYSWBOUFAIVLPEKQDT",notchs="AN", name="VII", model="M3 & M4 Naval(February 1942)", date="1939")
