@@ -49,6 +49,12 @@ class Enigma(object):
         plaintext_in_upper = plaintext_in.upper()
         plaintext = plaintext_in_upper.translate(self.transtab)
         for c in plaintext:
+
+            # ignore non alphabetic char
+            if not c.isalpha():
+                ciphertext += c
+                continue
+
             if self.rotor2.is_in_turnover_pos():
                 self.rotor2.notch()
                 self.rotor3.notch()
@@ -57,9 +63,6 @@ class Enigma(object):
 
             self.rotor1.notch()
 
-            if not c.isalpha():
-                ciphertext += c
-                continue
             t = self.rotor1.encipher_right(c)
             t = self.rotor2.encipher_right(t)
             t = self.rotor3.encipher_right(t)

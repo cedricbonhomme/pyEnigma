@@ -20,12 +20,12 @@ def usage():
 def main():
     # Point of entry in execution mode
     try:
-        key = sys.argv[1]
-        ref = sys.argv[2]
-        r1 = sys.argv[3]
-        r2 = sys.argv[4]
-        r3 = sys.argv[5]
-        plugs = sys.argv[6]
+        key = sys.argv[1].upper()
+        ref = sys.argv[2].upper()
+        r1 = sys.argv[3].upper()
+        r2 = sys.argv[4].upper()
+        r3 = sys.argv[5].upper()
+        plugs = sys.argv[6].upper()
     except:
         usage()
         exit()
