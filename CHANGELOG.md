@@ -1,6 +1,16 @@
 ## Release History
 
 
+### 0.3.0 (2020-05-11)
+
+* new: Ringstellung feature (a ring that shifts the letters on a given rotor);
+* fix: Rotor IV name (was misspelled as VI);
+* fix: allow en empty plugboard;
+* fix: the rotor must not advance if the character is not a letter.
+
+Thank you to [Rene Devichi](https://github.com/rene-d).
+
+
 ### 0.2.4 (2020-01-27)
 
 * Python minimal version is now 3.6.

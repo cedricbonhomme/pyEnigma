@@ -14,7 +14,7 @@ def usage():
     print('\techo "Hello World" | enigma ABC ref rotor1 rotor2 rotor3 plugboard')
     print("\nExample:")
     print('\t$ echo "Hello World" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"')
-    print("\tImweq Ltzda")
+    print("\tQgqop Vyzxp")
 
 
 def main():
