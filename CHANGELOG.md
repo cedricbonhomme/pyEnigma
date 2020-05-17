@@ -1,6 +1,14 @@
 ## Release History
 
 
+### 0.4.0 (2020-05-17)
+
+* new: display the rotor output state
+  [#1](https://todo.sr.ht/~cedric/pyenigma/1);
+* fix: Rotor ROTOR_III_K name (was misspelled as ROTOR_II_K)
+  [1e682f93](https://git.sr.ht/~cedric/pyenigma/commit/1e682f93e92ad5864eecd6c2298279ab8a6d034d).
+
+
 ### 0.3.0 (2020-05-11)
 
 * new: Ringstellung feature (a ring that shifts the letters on a given rotor);

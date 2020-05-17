@@ -3,7 +3,7 @@
 [![builds.sr.ht status](https://builds.sr.ht/~cedric/pyenigma.svg)](https://builds.sr.ht/~cedric/pyenigma)
 
 
-[pyEnigma](https://sr.ht/~cedric/pyenigma), a  Python Enigma cypher machine
+[pyEnigma](https://sr.ht/~cedric/pyenigma) is a  Python Enigma cypher machine
 simulator.
 
 For reporting issues, visit the tracker here:
@@ -93,6 +93,22 @@ $ echo "Hello World" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
 Qgqop Vyzxp
 
 $ echo "Qgqop Vyzxp" | enigma ABC A  I II III "AV BS CG DL FU HZ IN KM OW RX"
+Hello World
+```
+
+If you want to display the rotor output state:
+
+```bash
+$ echo "Hello World" | enigma ABC A I II III "AV BS CG DL FU HZ IN KM OW RX" --verbose
+Qgqop Vyzxp
+KBC A I II III "AV BS CG DL FU HZ IN KM OW RX"
+```
+
+The state is returned on ```stderr```, so you can still use the Unix pipe mechanism:
+
+```bash
+$ echo "Hello World" | enigma ABC A I II III "AV BS CG DL FU HZ IN KM OW RX" --verbose | enigma ABC A I II III "AV BS CG DL FU HZ IN KM OW RX"
+KBC A I II III "AV BS CG DL FU HZ IN KM OW RX"
 Hello World
 ```
 
