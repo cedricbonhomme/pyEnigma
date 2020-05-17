@@ -129,7 +129,7 @@ ROTOR_GR_ETW = Rotor(wiring="QWERTZUIOASDFGHJKPYXCVBNML", name="ETW", model="Ger
 # Swiss K Rotors
 ROTOR_I_K = Rotor(wiring="PEZUOHXSCVFMTBGLRINQJWAYDK", name="I-K", model="Swiss K", date="February 1939")
 ROTOR_II_K = Rotor(wiring="ZOUESYDKFWPCIQXHMVBLGNJRAT", name="II-K", model="Swiss K", date="February 1939")
-ROTOR_II_K = Rotor(wiring="EHRVXGAOBQUSIMZFLYNWKTPDJC", name="III-K", model="Swiss K", date="February 1939")
+ROTOR_III_K = Rotor(wiring="EHRVXGAOBQUSIMZFLYNWKTPDJC", name="III-K", model="Swiss K", date="February 1939")
 ROTOR_UKW_K = Reflector(wiring="IMETCGFRAYSQBZXWLHKDVUPOJN", name="UKW-K", model="Swiss K", date="February 1939")
 ROTOR_ETW_K = Rotor(wiring="QWERTZUIOASDFGHJKPYXCVBNML", name="ETW-K", model="Swiss K", date="February 1939")
 
