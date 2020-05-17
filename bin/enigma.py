@@ -30,8 +30,7 @@ def main():
         r3 = sys.argv[5].upper()
         plugs = sys.argv[6].upper()
         verbose = (sys.argv[7] if 7 < len(sys.argv) else '') in ['-v', '--verbose']
-    except Exception as e:
-        print(e)
+    except:
         usage()
         exit()
     raw = sys.stdin.read(-1)
