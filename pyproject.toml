@@ -37,13 +37,13 @@ include = [
 enigma = "bin.enigma:main"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.9"
 
-[tool.poetry.dev-dependencies]
-mypy = "^0.750"
-flake8 = "^3.7.9"
-nose2 = "^0.9.1"
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.991"
+flake8 = "^6.0.0"
+nose2 = "^0.12.0"
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry>=1.3.1"]
 build-backend = "poetry.masonry.api"
