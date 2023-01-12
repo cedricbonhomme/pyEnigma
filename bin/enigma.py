@@ -1,10 +1,8 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import sys
 
-from pyenigma.rotor import *
 from pyenigma.enigma import *
+from pyenigma.rotor import *
 
 """A trivial and minimaliste CLI.
 """
@@ -29,7 +27,7 @@ def main():
         r2 = sys.argv[4].upper()
         r3 = sys.argv[5].upper()
         plugs = sys.argv[6].upper()
-        verbose = (sys.argv[7] if 7 < len(sys.argv) else '') in ['-v', '--verbose']
+        verbose = (sys.argv[7] if 7 < len(sys.argv) else "") in ["-v", "--verbose"]
     except:
         usage()
         exit()
@@ -75,5 +73,6 @@ def main():
                 r2,
                 r3,
                 plugs,
-            ), file=sys.stderr
+            ),
+            file=sys.stderr,
         )

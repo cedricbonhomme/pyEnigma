@@ -1,8 +1,6 @@
 #! /usr/bin/env python
-#-*- coding: utf-8 -*-
-
-from . import rotor
 from . import enigma
+from . import rotor
 
 __author__ = "Christophe Goessen, Cedric Bonhomme"
 __version__ = "0.4.0"

@@ -1,9 +1,8 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
-
 from pyenigma.rotor import *
 
-class Enigma(object):
+
+class Enigma:
     """Represents an Enigma machine.
     Initializes an Enigma machine with these arguments:
     - ref: reflector;
@@ -11,9 +10,9 @@ class Enigma(object):
     - key: initial state of rotors;
     - plus: plugboard settings.
     """
+
     def __init__(self, ref, r1, r2, r3, key="AAA", plugs="", ring="AAA"):
-        """Initialization of the Enigma machine.
-        """
+        """Initialization of the Enigma machine."""
         self.reflector = ref
         self.rotor1 = r1
         self.rotor2 = r2
@@ -25,29 +24,29 @@ class Enigma(object):
         self.rotor1.ring = ring[0]
         self.rotor2.ring = ring[1]
         self.rotor3.ring = ring[2]
-        self.reflector.state = 'A'
+        self.reflector.state = "A"
 
-        plugboard_settings= [(elem[0], elem[1]) for elem in plugs.split()]
+        plugboard_settings = [(elem[0], elem[1]) for elem in plugs.split()]
 
         alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         alpha_out = [" "] * 26
         for i in range(len(alpha)):
             alpha_out[i] = alpha[i]
         for k, v in plugboard_settings:
-            alpha_out[ord(k)-ord('A')] = v
-            alpha_out[ord(v)-ord('A')] = k
+            alpha_out[ord(k) - ord("A")] = v
+            alpha_out[ord(v) - ord("A")] = k
 
         try:
             self.transtab = str.maketrans(alpha, "".join(alpha_out))
         except:
             # Python 2
             from string import maketrans
-            self.transtab = maketrans(alpha,"".join(alpha_out))
+
+            self.transtab = maketrans(alpha, "".join(alpha_out))
 
     def encipher(self, plaintext_in):
-        """Encrypt 'plaintext_in'.
-        """
-        ciphertext = ''
+        """Encrypt 'plaintext_in'."""
+        ciphertext = ""
         plaintext_in_upper = plaintext_in.upper()
         plaintext = plaintext_in_upper.translate(self.transtab)
         for c in plaintext:
@@ -85,13 +84,14 @@ class Enigma(object):
         return fres
 
     def __str__(self):
-        """Pretty display.
-        """
+        """Pretty display."""
         return """
-        Reflector: %s
+        Reflector: {}
 
-        Rotor 1: %s
+        Rotor 1: {}
 
-        Rotor 2: %s
+        Rotor 2: {}
 
-        Rotor 3: %s""" % (self.reflector, self.rotor1, self.rotor2, self.rotor3)
+        Rotor 3: {}""".format(
+            self.reflector, self.rotor1, self.rotor2, self.rotor3
+        )

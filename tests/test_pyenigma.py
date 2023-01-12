@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
-
 # pyEnigma - Python Enigma cypher machine simulator.
 # Copyright (C) 2010-2017
 #
@@ -28,35 +26,46 @@ import unittest
 from pyenigma.rotor import *
 from pyenigma.enigma import *
 
+
 class TestpyEnigma(unittest.TestCase):
-
     def setUp(self):
-        self.rotors = { \
-              "I":ROTOR_I,"II":ROTOR_II,"III":ROTOR_III,"IV":ROTOR_IV, \
-              "V":ROTOR_V,"VI":ROTOR_VI,"VII":ROTOR_VII \
-              }
-        self.reflectors = { \
-              "A":ROTOR_Reflector_A,"B":ROTOR_Reflector_B, \
-              "C":ROTOR_Reflector_C \
-              }
+        self.rotors = {
+            "I": ROTOR_I,
+            "II": ROTOR_II,
+            "III": ROTOR_III,
+            "IV": ROTOR_IV,
+            "V": ROTOR_V,
+            "VI": ROTOR_VI,
+            "VII": ROTOR_VII,
+        }
+        self.reflectors = {
+            "A": ROTOR_Reflector_A,
+            "B": ROTOR_Reflector_B,
+            "C": ROTOR_Reflector_C,
+        }
 
-        self.key = 'ABC'
-        self.ref = 'A'
-        self.r1 = 'I'
-        self.r2 = 'II'
-        self.r3 = 'III'
-        self.plugs = 'AV BS CG DL FU HZ IN KM OW RX'
+        self.key = "ABC"
+        self.ref = "A"
+        self.r1 = "I"
+        self.r2 = "II"
+        self.r3 = "III"
+        self.plugs = "AV BS CG DL FU HZ IN KM OW RX"
 
     def test_encrypt(self):
-        message = 'Hello World'
+        message = "Hello World"
 
-        engr = Enigma(self.reflectors[self.ref], self.rotors[self.r1],
-                        self.rotors[self.r2], self.rotors[self.r3],
-                        key=self.key, plugs=self.plugs)
+        engr = Enigma(
+            self.reflectors[self.ref],
+            self.rotors[self.r1],
+            self.rotors[self.r2],
+            self.rotors[self.r3],
+            key=self.key,
+            plugs=self.plugs,
+        )
         secret = engr.encipher(message)
 
-        self.assertEqual(secret, 'Qgqop Vyzxp')
+        self.assertEqual(secret, "Qgqop Vyzxp")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
