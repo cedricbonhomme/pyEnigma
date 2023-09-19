@@ -56,8 +56,7 @@ class Enigma:
                 ciphertext += c
                 continue
 
-            if self.rotor2.is_in_turnover_pos():
-                self.rotor2.notch()
+            if self.rotor1.is_in_turnover_pos() and self.rotor2.is_in_turnover_pos():
                 self.rotor3.notch()
             if self.rotor1.is_in_turnover_pos():
                 self.rotor2.notch()
