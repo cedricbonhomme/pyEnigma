@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyenigma"
-version = "0.4.0"
+version = "0.4.1"
 description = "Python Enigma cypher machine simulator."
 authors = [
     "Cédric Bonhomme <cedric@cedricbonhomme.org>",
