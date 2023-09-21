@@ -1,6 +1,12 @@
 ## Release History
 
 
+### 0.4.1 (2023-09-21)
+
+Fixed an issue with the rotor's logic.
+https://todo.sr.ht/~cedric/pyenigma/4
+
+
 ### 0.4.0 (2020-05-17)
 
 * new: display the rotor output state
