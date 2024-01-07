@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from pyenigma.rotor import *
 
 
 class Enigma:
@@ -36,13 +35,7 @@ class Enigma:
             alpha_out[ord(k) - ord("A")] = v
             alpha_out[ord(v) - ord("A")] = k
 
-        try:
-            self.transtab = str.maketrans(alpha, "".join(alpha_out))
-        except:
-            # Python 2
-            from string import maketrans
-
-            self.transtab = maketrans(alpha, "".join(alpha_out))
+        self.transtab = str.maketrans(alpha, "".join(alpha_out))
 
     def encipher(self, plaintext_in):
         """Encrypt 'plaintext_in'."""

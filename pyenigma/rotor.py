@@ -5,7 +5,7 @@ class Reflector:
     """Represents a reflector."""
 
     def __init__(self, wiring=None, name=None, model=None, date=None):
-        if wiring != None:
+        if wiring is not None:
             self.wiring = wiring
         else:
             self.wiring = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -58,14 +58,14 @@ class Rotor:
         """
         Initialization of the rotor.
         """
-        if wiring != None:
+        if wiring is not None:
             self.wiring = wiring
         else:
             self.wiring = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.rwiring = ["0"] * 26
         for i in range(0, len(self.wiring)):
             self.rwiring[ord(self.wiring[i]) - ord("A")] = chr(ord("A") + i)
-        if notchs != None:
+        if notchs is not None:
             self.notchs = notchs
         else:
             self.notchs = ""
@@ -107,7 +107,7 @@ class Rotor:
 
     def notch(self, offset=1):
         self.state = chr((ord(self.state) + offset - ord("A")) % 26 + ord("A"))
-        notchnext = self.state in self.notchs
+        # notchnext = self.state in self.notchs
         # return notchnext
 
     def is_in_turnover_pos(self):

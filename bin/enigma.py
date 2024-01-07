@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import sys
 
-from pyenigma.enigma import *
-from pyenigma.rotor import *
+from pyenigma import enigma
+from pyenigma import rotor
 
 """A trivial and minimaliste CLI.
 """
@@ -28,30 +28,30 @@ def main():
         r3 = sys.argv[5].upper()
         plugs = sys.argv[6].upper()
         verbose = (sys.argv[7] if 7 < len(sys.argv) else "") in ["-v", "--verbose"]
-    except:
+    except Exception:
         usage()
         exit()
     raw = sys.stdin.read(-1)
 
     rotors = {
-        "I": ROTOR_I,
-        "II": ROTOR_II,
-        "III": ROTOR_III,
-        "IV": ROTOR_IV,
-        "V": ROTOR_V,
-        "VI": ROTOR_VI,
-        "VII": ROTOR_VII,
+        "I": rotor.ROTOR_I,
+        "II": rotor.ROTOR_II,
+        "III": rotor.ROTOR_III,
+        "IV": rotor.ROTOR_IV,
+        "V": rotor.ROTOR_V,
+        "VI": rotor.ROTOR_VI,
+        "VII": rotor.ROTOR_VII,
     }
     reflectors = {
-        "A": ROTOR_Reflector_A,
-        "B": ROTOR_Reflector_B,
-        "C": ROTOR_Reflector_C,
+        "A": rotor.ROTOR_Reflector_A,
+        "B": rotor.ROTOR_Reflector_B,
+        "C": rotor.ROTOR_Reflector_C,
     }
 
     if len(key) == 3:  # add the default ringstellung
         key += "-AAA"
 
-    engr = Enigma(
+    engr = enigma.Enigma(
         reflectors[ref],
         rotors[r1],
         rotors[r2],
