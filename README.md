@@ -25,13 +25,12 @@ Then you can use it in your program:
 
 ```bash
 $ poetry shell
-(pyenigma-X0xzv6Ge-py3.8) $
-(pyenigma-X0xzv6Ge-py3.8) $ python
+(pyenigma-py3.12) $
+(pyenigma-py3.12) $ python
 ```
 
 ```python
-Python 3.8.0 (default, Dec 11 2019, 21:43:13)
-[GCC 9.2.1 20191008] on linux
+Python 3.12.1 (main, Dec 31 2023, 00:21:59) [GCC 12.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from pyenigma import enigma
 >>> from pyenigma import rotor

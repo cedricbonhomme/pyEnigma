@@ -50,7 +50,6 @@ class Enigma:
         plaintext_in_upper = plaintext_in.upper()
         plaintext = plaintext_in_upper.translate(self.transtab)
         for c in plaintext:
-
             # ignore non alphabetic char
             if not c.isalpha():
                 ciphertext += c

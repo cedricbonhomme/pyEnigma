@@ -37,7 +37,7 @@ include = [
 enigma = "bin.enigma:main"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^0.991"
