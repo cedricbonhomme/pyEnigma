@@ -13,17 +13,19 @@ readme = "README.md"
 homepage = "https://sr.ht/~cedric/pyenigma"
 repository = "https://git.sr.ht/~cedric/pyenigma"
 
-keywords = ["cryptography", "security"]
+keywords = ["cryptography", "security", "enigma"]
 
 classifiers = [
-    'Development Status :: 5 - Production/Stable',
-    'Environment :: Console',
-    'Intended Audience :: Developers',
-    'Intended Audience :: Science/Research',
-    'Topic :: Security',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python :: 3.6',
-    'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)'
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Security",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
 ]
 
 include = [
