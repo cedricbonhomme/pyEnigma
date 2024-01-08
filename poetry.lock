@@ -214,25 +214,25 @@ files = [
 
 [[package]]
 name = "cyclonedx-python-lib"
-version = "5.2.0"
+version = "6.3.0"
 description = "Python library for CycloneDX"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "cyclonedx_python_lib-5.2.0-py3-none-any.whl", hash = "sha256:1b43065205cdc53490c825fcfbda73142b758aa40ca169c968e342e88d06734f"},
-    {file = "cyclonedx_python_lib-5.2.0.tar.gz", hash = "sha256:b9ebf2c0520721d2f8ee16aadc2bbb9d4e015862c84ab1691a49b177f3014d99"},
+    {file = "cyclonedx_python_lib-6.3.0-py3-none-any.whl", hash = "sha256:0e73c1036c2f7fc67adc28aef807e6b44340ea70202aab197fb06b20ea165de8"},
+    {file = "cyclonedx_python_lib-6.3.0.tar.gz", hash = "sha256:82f2489de3c0cadad5af1ad7fa6b6a185f985746370245d38769699c734533c6"},
 ]
 
 [package.dependencies]
 license-expression = ">=30,<31"
 packageurl-python = ">=0.11"
-py-serializable = ">=0.15,<0.16"
+py-serializable = ">=0.16,<0.18"
 sortedcontainers = ">=2.4.0,<3.0.0"
 
 [package.extras]
 json-validation = ["jsonschema[format] (>=4.18,<5.0)"]
-validation = ["jsonschema[format] (>=4.18,<5.0)", "lxml (>=4,<5)"]
-xml-validation = ["lxml (>=4,<5)"]
+validation = ["jsonschema[format] (>=4.18,<5.0)", "lxml (>=4,<6)"]
+xml-validation = ["lxml (>=4,<6)"]
 
 [[package]]
 name = "defusedxml"
@@ -555,13 +555,13 @@ dev = ["Sphinx", "mock", "sphinx-issues", "sphinx-rtd-theme"]
 
 [[package]]
 name = "packageurl-python"
-version = "0.13.3"
+version = "0.13.4"
 description = "A purl aka. Package URL parser and builder"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "packageurl-python-0.13.3.tar.gz", hash = "sha256:63514d3b72f22a9c092913b3fa7b4670e479998dff3d93597863c413735e2ec7"},
-    {file = "packageurl_python-0.13.3-py3-none-any.whl", hash = "sha256:ed8abe1a92bbc91f0db60e7fe5a586d71d3d93036f558d43502cc2451833a1df"},
+    {file = "packageurl-python-0.13.4.tar.gz", hash = "sha256:6eb5e995009cc73387095e0b507ab65df51357d25ddc5fce3d3545ad6dcbbee8"},
+    {file = "packageurl_python-0.13.4-py3-none-any.whl", hash = "sha256:62aa13d60a0082ff115784fefdfe73a12f310e455365cca7c6d362161067f35f"},
 ]
 
 [package.extras]
@@ -619,18 +619,18 @@ pip = "*"
 
 [[package]]
 name = "pip-audit"
-version = "2.6.2"
+version = "2.6.3"
 description = "A tool for scanning Python environments for known vulnerabilities"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pip_audit-2.6.2-py3-none-any.whl", hash = "sha256:ac3a4b6e977ef2c574aa8d19a5d71d12201bdb65bba2d67d9df49f53f0be5e7d"},
-    {file = "pip_audit-2.6.2.tar.gz", hash = "sha256:0bbd023a199a104b29f949f063a872d41113b5a9048285666820fa35a76a7794"},
+    {file = "pip_audit-2.6.3-py3-none-any.whl", hash = "sha256:216983210db4a15393f9e80e4d24a805f5767e4c8e0c31fc70c336acc629613b"},
+    {file = "pip_audit-2.6.3.tar.gz", hash = "sha256:bd796066f69684b2f4fc2c2b6d222589e23190db0bbde069cea5c2b0be2cc57d"},
 ]
 
 [package.dependencies]
 CacheControl = {version = ">=0.13.0", extras = ["filecache"]}
-cyclonedx-python-lib = ">=4,<6"
+cyclonedx-python-lib = ">=5,<7"
 html5lib = ">=1.1"
 packaging = ">=23.0.0"
 pip-api = ">=0.0.28"
@@ -642,7 +642,7 @@ toml = ">=0.10"
 [package.extras]
 dev = ["build", "bump (>=1.3.2)", "pip-audit[doc,lint,test]"]
 doc = ["pdoc"]
-lint = ["interrogate", "mypy", "ruff (<0.1.9)", "types-html5lib", "types-requests", "types-toml"]
+lint = ["interrogate", "mypy", "ruff (<0.1.12)", "types-html5lib", "types-requests", "types-toml"]
 test = ["coverage[toml] (>=7.0,!=7.3.3,<8.0)", "pretend", "pytest", "pytest-cov"]
 
 [[package]]
@@ -699,13 +699,13 @@ virtualenv = ">=20.10.0"
 
 [[package]]
 name = "py-serializable"
-version = "0.15.0"
+version = "0.17.1"
 description = "Library for serializing and deserializing Python Objects to and from JSON and XML."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "py-serializable-0.15.0.tar.gz", hash = "sha256:8fc41457d8ee5f5c5a12f41fd87bf1a4f2ecf9da39fee92059b728e78f320771"},
-    {file = "py_serializable-0.15.0-py3-none-any.whl", hash = "sha256:d3f1201b33420c481aa83f7860c7bf2c2f036ba3ea82b6e15a96696457c36cd2"},
+    {file = "py-serializable-0.17.1.tar.gz", hash = "sha256:875bb9c01df77f563dfcd1e75bb4244b5596083d3aad4ccd3fb63e1f5a9d3e5f"},
+    {file = "py_serializable-0.17.1-py3-none-any.whl", hash = "sha256:389c2254d912bec3a44acdac667c947d73c59325050d5ae66386e1ed7108a45a"},
 ]
 
 [package.dependencies]
