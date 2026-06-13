@@ -1,17 +1,145 @@
 #!/usr/bin/env python
+"""Enigma cipher machine simulator.
+
+This module implements the Enigma class, which simulates the WWII German
+Enigma cipher machine. The machine uses a series of rotating substitution
+ciphers (rotors), a reflector, and an optional plugboard (Steckerbrett)
+to encrypt and decrypt messages.
+
+The Enigma is self-reciprocal: with identical settings, enciphering an
+already-enciphered message returns the original plaintext. This property
+is fundamental to how Enigma operated — the sender and receiver used the
+same machine settings to encrypt and decrypt respectively.
+"""
+
+_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+_ORD_A = ord("A")
+
+
+def _build_plugboard_table(plugs_str):
+    """Build a translation table from a plugboard configuration string.
+
+    The plugboard (Steckerbrett) swaps pairs of letters before and after
+    the rotor encryption. Each pair in the configuration string represents
+    two letters that are wired together on the plugboard.
+
+    Args:
+        plugs_str: Space-separated letter pairs (e.g., "AV BS CG DL").
+            An empty string means no plugboard connections.
+
+    Returns:
+        A str.maketrans translation table for the plugboard swaps.
+    """
+    if not plugs_str:
+        return str.maketrans(_ALPHABET, _ALPHABET)
+
+    plug_pairs = [(pair[0], pair[1]) for pair in plugs_str.split()]
+    output_letters = list(_ALPHABET)
+
+    for letter_a, letter_b in plug_pairs:
+        output_letters[ord(letter_a) - _ORD_A] = letter_b
+        output_letters[ord(letter_b) - _ORD_A] = letter_a
+
+    return str.maketrans(_ALPHABET, "".join(output_letters))
+
+
+def _process_single_char(enigma, char):
+    """Process a single character through the Enigma machine's signal path.
+
+    This implements the complete electrical signal path for one character:
+    1. Advance the rotors (with double-stepping logic)
+    2. Signal passes right-to-left through rotors 1→2→3
+    3. Signal hits the reflector
+    4. Signal passes left-to-right through rotors 3→2→1
+
+    Args:
+        enigma: The Enigma instance (needed for rotor access).
+        char: A single uppercase alphabetic character.
+
+    Returns:
+        The encrypted/decrypted uppercase letter.
+    """
+    # Double-stepping anomaly: when both rotor1 and rotor2 are in
+    # turnover positions, rotor3 also advances
+    if enigma.rotor1.is_in_turnover_pos() and enigma.rotor2.is_in_turnover_pos():
+        enigma.rotor3.notch()
+    if enigma.rotor1.is_in_turnover_pos():
+        enigma.rotor2.notch()
+
+    # Always advance the fast rotor (rightmost)
+    enigma.rotor1.notch()
+
+    # Signal path: right → reflector → left
+    signal = enigma.rotor1.encipher_right(char)
+    signal = enigma.rotor2.encipher_right(signal)
+    signal = enigma.rotor3.encipher_right(signal)
+    signal = enigma.reflector.encipher(signal)
+    signal = enigma.rotor3.encipher_left(signal)
+    signal = enigma.rotor2.encipher_left(signal)
+    signal = enigma.rotor1.encipher_left(signal)
+
+    return signal
+
+
+def _restore_case(plaintext, ciphertext):
+    """Restore the original case pattern from plaintext to ciphertext.
+
+    The Enigma machine operates on uppercase letters, but the input
+    may contain lowercase characters. This function preserves the
+    original case: lowercase input produces lowercase output, and
+    uppercase input produces uppercase output.
+
+    Non-alphabetic characters in ciphertext pass through unchanged.
+
+    Args:
+        plaintext: The original input string with original case.
+        ciphertext: The encrypted string (all uppercase for alpha chars).
+
+    Returns:
+        The ciphertext with case restored to match the plaintext pattern.
+    """
+    result = []
+    for idx, original_char in enumerate(plaintext):
+        if original_char.islower():
+            result.append(ciphertext[idx].lower())
+        else:
+            result.append(ciphertext[idx])
+    return "".join(result)
 
 
 class Enigma:
-    """Represents an Enigma machine.
-    Initializes an Enigma machine with these arguments:
-    - ref: reflector;
-    - r1, r2, r3: rotors;
-    - key: initial state of rotors;
-    - plus: plugboard settings.
+    """Represents an Enigma cipher machine.
+
+    The Enigma machine encrypts text through a series of substitution
+    ciphers implemented by rotating wheels (rotors), a reflector that
+    reverses the signal path, and an optional plugboard that swaps
+    letter pairs.
+
+    The machine is self-reciprocal: enciphering the same text twice
+    with identical settings returns the original plaintext.
+
+    Attributes:
+        reflector: The reflector component (Umkehrwalze).
+        rotor1: The rightmost (fast) rotor.
+        rotor2: The middle rotor.
+        rotor3: The leftmost (slow) rotor.
+        transtab: The plugboard translation table.
     """
 
     def __init__(self, ref, r1, r2, r3, key="AAA", plugs="", ring="AAA"):
-        """Initialization of the Enigma machine."""
+        """Initialize an Enigma machine with the given configuration.
+
+        Args:
+            ref: Reflector instance (e.g., ROTOR_Reflector_B).
+            r1: Rightmost rotor (fast rotor, advances every keypress).
+            r2: Middle rotor (advances when r1 hits turnover).
+            r3: Leftmost rotor (slow rotor, advances when r2 hits turnover).
+            key: 3-letter initial rotor position (e.g., "AAA"). Defaults to "AAA".
+            plugs: Plugboard configuration as space-separated pairs
+                (e.g., "AV BS CG"). Defaults to empty (no plugs).
+            ring: 3-letter ring setting / Ringstellung (e.g., "AAA").
+                Defaults to "AAA".
+        """
         self.reflector = ref
         self.rotor1 = r1
         self.rotor2 = r2
@@ -25,57 +153,44 @@ class Enigma:
         self.rotor3.ring = ring[2]
         self.reflector.state = "A"
 
-        plugboard_settings = [(elem[0], elem[1]) for elem in plugs.split()]
-
-        alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        alpha_out = [" "] * 26
-        for i in range(len(alpha)):
-            alpha_out[i] = alpha[i]
-        for k, v in plugboard_settings:
-            alpha_out[ord(k) - ord("A")] = v
-            alpha_out[ord(v) - ord("A")] = k
-
-        self.transtab = str.maketrans(alpha, "".join(alpha_out))
+        self.transtab = _build_plugboard_table(plugs)
 
     def encipher(self, plaintext_in):
-        """Encrypt 'plaintext_in'."""
-        ciphertext = ""
-        plaintext_in_upper = plaintext_in.upper()
-        plaintext = plaintext_in_upper.translate(self.transtab)
-        for c in plaintext:
-            # ignore non alphabetic char
-            if not c.isalpha():
-                ciphertext += c
+        """Encrypt or decrypt a message using the Enigma machine.
+
+        The method processes each alphabetic character through the
+        complete Enigma signal path, including plugboard, rotors,
+        and reflector. Non-alphabetic characters (spaces, numbers,
+        punctuation) pass through unchanged.
+
+        Case is preserved: lowercase input produces lowercase output,
+        and uppercase input produces uppercase output. The internal
+        processing is always done in uppercase.
+
+        Args:
+            plaintext_in: The message to encrypt or decrypt.
+
+        Returns:
+            The enciphered text, with original case preserved and
+            non-alphabetic characters unchanged.
+        """
+        plaintext_upper = plaintext_in.upper()
+        plugboard_applied = plaintext_upper.translate(self.transtab)
+
+        cipher_chars = []
+        for char in plugboard_applied:
+            if not char.isalpha():
+                cipher_chars.append(char)
                 continue
+            cipher_chars.append(_process_single_char(self, char))
 
-            if self.rotor1.is_in_turnover_pos() and self.rotor2.is_in_turnover_pos():
-                self.rotor3.notch()
-            if self.rotor1.is_in_turnover_pos():
-                self.rotor2.notch()
+        ciphertext = "".join(cipher_chars)
+        plugboard_reversed = ciphertext.translate(self.transtab)
 
-            self.rotor1.notch()
-
-            t = self.rotor1.encipher_right(c)
-            t = self.rotor2.encipher_right(t)
-            t = self.rotor3.encipher_right(t)
-            t = self.reflector.encipher(t)
-            t = self.rotor3.encipher_left(t)
-            t = self.rotor2.encipher_left(t)
-            t = self.rotor1.encipher_left(t)
-            ciphertext += t
-
-        res = ciphertext.translate(self.transtab)
-
-        fres = ""
-        for idx, char in enumerate(res):
-            if plaintext_in[idx].islower():
-                fres += char.lower()
-            else:
-                fres += char
-        return fres
+        return _restore_case(plaintext_in, plugboard_reversed)
 
     def __str__(self):
-        """Pretty display."""
+        """Pretty display of the machine's current rotor configuration."""
         return """
         Reflector: {}
 
