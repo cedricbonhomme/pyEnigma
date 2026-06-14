@@ -1,13 +1,7 @@
 # pyEnigma
 
-[![builds.sr.ht status](https://builds.sr.ht/~cedric/pyenigma.svg)](https://builds.sr.ht/~cedric/pyenigma)
-
-
-[pyEnigma](https://sr.ht/~cedric/pyenigma) is a  Python Enigma cypher machine
+[pyEnigma](https://github.com/cedricbonhomme/pyEnigma) is a  Python Enigma cypher machine
 simulator.
-
-For reporting issues, visit the tracker here:
-https://todo.sr.ht/~cedric/pyenigma
 
 
 ## Usage

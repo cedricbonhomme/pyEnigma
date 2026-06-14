@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pyenigma"
+name = "pyEnigma"
 version = "0.5.0"
 description = "Python Enigma cypher machine simulator."
 authors = [
@@ -10,8 +10,8 @@ license = "GPL-3.0-or-later"
 
 readme = "README.md"
 
-homepage = "https://sr.ht/~cedric/pyenigma"
-repository = "https://git.sr.ht/~cedric/pyenigma"
+homepage = "https://github.com/cedricbonhomme/pyEnigma"
+repository = "https://github.com/cedricbonhomme/pyEnigma"
 
 keywords = ["cryptography", "security", "enigma"]
 
