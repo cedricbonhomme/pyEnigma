@@ -1,6 +1,19 @@
 ## Release History
 
 
+### 0.5.0 (2026-06-14)
+
+* fix: case restoration no longer raises an error or drops characters when the
+  input contains a character whose uppercase form changes length (e.g. "ß" → "SS")
+  [#29](https://github.com/cedricbonhomme/pyEnigma/pull/29);
+* chg: refactored the core `enigma` and `rotor` modules — extracted helper
+  functions, added docstrings, and improved naming (behavior-preserving)
+  [#29](https://github.com/cedricbonhomme/pyEnigma/pull/29);
+* chg: updated dependencies.
+
+Thank you to [Raymond Fo](https://github.com/Wolfvin).
+
+
 ### 0.4.1 (2023-09-21)
 
 Fixed an issue with the rotor's logic.
