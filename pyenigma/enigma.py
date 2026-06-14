@@ -81,29 +81,31 @@ def _process_single_char(enigma, char):
     return signal
 
 
-def _restore_case(plaintext, ciphertext):
-    """Restore the original case pattern from plaintext to ciphertext.
+def _restore_case(lower_flags, ciphertext):
+    """Restore the original case pattern onto the ciphertext.
 
     The Enigma machine operates on uppercase letters, but the input
     may contain lowercase characters. This function preserves the
-    original case: lowercase input produces lowercase output, and
-    uppercase input produces uppercase output.
+    original case: positions that were lowercase in the input produce
+    lowercase output, and uppercase positions stay uppercase.
 
-    Non-alphabetic characters in ciphertext pass through unchanged.
+    ``lower_flags`` must be aligned with ``ciphertext`` position-for-position
+    (see :meth:`Enigma.encipher`). They can be built directly from the
+    input string only when uppercasing preserves length; some characters
+    expand when uppercased (e.g. ``ß`` -> ``SS``), so the flags are
+    computed against that expansion rather than the raw input.
 
     Args:
-        plaintext: The original input string with original case.
+        lower_flags: Per-position booleans, True where the output should
+            be lowercased. Same length as ``ciphertext``.
         ciphertext: The encrypted string (all uppercase for alpha chars).
 
     Returns:
-        The ciphertext with case restored to match the plaintext pattern.
+        The ciphertext with case restored to match the original input.
     """
     result = []
-    for idx, original_char in enumerate(plaintext):
-        if original_char.islower():
-            result.append(ciphertext[idx].lower())
-        else:
-            result.append(ciphertext[idx])
+    for is_lower, cipher_char in zip(lower_flags, ciphertext):
+        result.append(cipher_char.lower() if is_lower else cipher_char)
     return "".join(result)
 
 
@@ -177,6 +179,15 @@ class Enigma:
         plaintext_upper = plaintext_in.upper()
         plugboard_applied = plaintext_upper.translate(self.transtab)
 
+        # Track case per output position. Uppercasing can change length
+        # (e.g. "ß" -> "SS"), so flags are aligned with the uppercased
+        # string rather than the raw input to keep the case mask in sync
+        # with the enciphered characters.
+        lower_flags = []
+        for original_char in plaintext_in:
+            expansion_len = len(original_char.upper())
+            lower_flags.extend([original_char.islower()] * expansion_len)
+
         cipher_chars = []
         for char in plugboard_applied:
             if not char.isalpha():
@@ -187,7 +198,7 @@ class Enigma:
         ciphertext = "".join(cipher_chars)
         plugboard_reversed = ciphertext.translate(self.transtab)
 
-        return _restore_case(plaintext_in, plugboard_reversed)
+        return _restore_case(lower_flags, plugboard_reversed)
 
     def __str__(self):
         """Pretty display of the machine's current rotor configuration."""
