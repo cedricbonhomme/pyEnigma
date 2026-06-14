@@ -59,14 +59,17 @@ def _process_single_char(enigma, char):
     Returns:
         The encrypted/decrypted uppercase letter.
     """
-    # Double-stepping anomaly: when both rotor1 and rotor2 are in
-    # turnover positions, rotor3 also advances
-    if enigma.rotor1.is_in_turnover_pos() and enigma.rotor2.is_in_turnover_pos():
+    # Rotor stepping. The notch on a rotor carries the rotor to its left as
+    # the keypress is made while the notch letter is showing.
+    #   - middle rotor on its notch: both the middle and the left rotor step
+    #     (the double-stepping anomaly), regardless of the fast rotor.
+    #   - otherwise, the fast rotor on its notch steps the middle rotor.
+    # The fast (rightmost) rotor always advances.
+    if enigma.rotor2.is_in_turnover_pos():
         enigma.rotor3.notch()
-    if enigma.rotor1.is_in_turnover_pos():
         enigma.rotor2.notch()
-
-    # Always advance the fast rotor (rightmost)
+    elif enigma.rotor1.is_in_turnover_pos():
+        enigma.rotor2.notch()
     enigma.rotor1.notch()
 
     # Signal path: right → reflector → left

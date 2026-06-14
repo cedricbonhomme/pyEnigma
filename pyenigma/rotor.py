@@ -5,7 +5,6 @@ This module defines the Rotor and Reflector classes that implement
 the core substitution cipher mechanics of the Enigma machine, along
 with all historical rotor and reflector definitions.
 """
-
 # Alphabet constants
 _ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 _ALPHABET_SIZE = 26
@@ -85,7 +84,10 @@ class Reflector:
         shift = ord(self.state) - _ORD_A
         connector_index = (ord(key) - _ORD_A + shift) % _ALPHABET_SIZE
         wired_letter = self.wiring[connector_index]
-        output = chr(_ORD_A + (ord(wired_letter) - _ORD_A + _ALPHABET_SIZE - shift) % _ALPHABET_SIZE)
+        output = chr(
+            _ORD_A
+            + (ord(wired_letter) - _ORD_A + _ALPHABET_SIZE - shift) % _ALPHABET_SIZE
+        )
         return output
 
     def __eq__(self, other):
@@ -185,7 +187,10 @@ class Rotor:
         shift = ord(self.state) - ord(self.ring)
         connector_index = (ord(key) - _ORD_A + shift) % _ALPHABET_SIZE
         wired_letter = self.wiring[connector_index]
-        output = chr(_ORD_A + (ord(wired_letter) - _ORD_A + _ALPHABET_SIZE - shift) % _ALPHABET_SIZE)
+        output = chr(
+            _ORD_A
+            + (ord(wired_letter) - _ORD_A + _ALPHABET_SIZE - shift) % _ALPHABET_SIZE
+        )
         return output
 
     def encipher_left(self, key):
@@ -204,7 +209,10 @@ class Rotor:
         shift = ord(self.state) - ord(self.ring)
         connector_index = (ord(key) - _ORD_A + shift) % _ALPHABET_SIZE
         wired_letter = self.rwiring[connector_index]
-        output = chr(_ORD_A + (ord(wired_letter) - _ORD_A + _ALPHABET_SIZE - shift) % _ALPHABET_SIZE)
+        output = chr(
+            _ORD_A
+            + (ord(wired_letter) - _ORD_A + _ALPHABET_SIZE - shift) % _ALPHABET_SIZE
+        )
         return output
 
     def notch(self, offset=1):
@@ -220,18 +228,18 @@ class Rotor:
         self.state = chr((ord(self.state) + offset - _ORD_A) % _ALPHABET_SIZE + _ORD_A)
 
     def is_in_turnover_pos(self):
-        """Check if the rotor is one step before a turnover notch.
+        """Check if the rotor is currently sitting on a turnover notch.
 
-        When the rotor advances into a notch position on the next keypress,
-        it will trigger the next rotor to advance. This method checks
-        whether the *next* position is a notch position, which is the
-        correct check for the Enigma's mechanical stepping logic.
+        A real Enigma rotor carries the next rotor as it *leaves* its notch
+        letter (e.g. Rotor I turns the rotor to its left as it steps from R
+        to S). So the turnover is triggered by the keypress that occurs while
+        the notch letter is showing — i.e. when the *current* position is a
+        notch position.
 
         Returns:
-            True if the next position is a turnover notch, False otherwise.
+            True if the current position is a turnover notch, False otherwise.
         """
-        next_position = chr((ord(self.state) + 1 - _ORD_A) % _ALPHABET_SIZE + _ORD_A)
-        return next_position in self.notchs
+        return self.state in self.notchs
 
     def __eq__(self, other):
         """Two rotors are equal if they have the same name."""
