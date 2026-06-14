@@ -1,6 +1,17 @@
 ## Release History
 
 
+### 1.0.0 (2026-06-14)
+
+* fix: corrected rotor turnover and double-stepping so ciphertext matches
+  standard Enigma simulators when a rotor crosses its turnover notch
+  [#2](https://github.com/cedricbonhomme/pyEnigma/issues/2),
+  [#30](https://github.com/cedricbonhomme/pyEnigma/pull/30);
+* doc: documented the ring setting (Ringstellung) CLI syntax (`KEY-RING`).
+
+Thank you to [Turbo Tas](https://github.com/turbotas).
+
+
 ### 0.5.0 (2026-06-14)
 
 * fix: case restoration no longer raises an error or drops characters when the
