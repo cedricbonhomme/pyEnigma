@@ -29,10 +29,16 @@ poetry run pre-commit run --all-files
 poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics   # CI's hard-fail lint
 ```
 
-Running the CLI:
+Running the CLI (positional args: `KEY REF R1 R2 R3 PLUGS [--verbose]`):
 
 ```bash
 echo "Hello World" | poetry run enigma ABC A I II III "AV BS CG DL FU HZ IN KM OW RX"
+```
+
+The `KEY` is the 3-letter rotor start positions and may carry an optional Ringstellung suffix `-DEF` (defaults to `AAA` when omitted), e.g. `ABC-DEF` sets positions `ABC` and ring settings `DEF`:
+
+```bash
+echo "Hello World" | poetry run enigma ABC-DEF A I II III "AV BS CG DL FU HZ IN KM OW RX"
 ```
 
 CI runs on sourcehut (`.builds/`): it installs via Poetry, runs the flake8 syntax check, then `nose2`. The canonical repo is on sourcehut (`git.sr.ht/~cedric/pyenigma`); GitHub is a mirror. Issues are tracked at `todo.sr.ht/~cedric/pyenigma`.

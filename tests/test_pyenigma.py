@@ -75,6 +75,41 @@ class TestpyEnigma(unittest.TestCase):
 
         self.assertEqual(secret, "Qgqop Vyzxp")
 
+    def test_turnover_matches_reference(self):
+        # Regression for the rotor turnover timing (ticket #2): enciphering 26
+        # 'A's with Walzenlage I-II-III (left to right), reflector B, ring AAA,
+        # ground position AAA and no plugboard must match a standard Enigma.
+        # This crosses the fast rotor's notch, which the old (off-by-one)
+        # stepping mishandled.
+        engr = Enigma(
+            self.reflectors["B"],
+            self.rotors["III"],  # rotor1 = fast / rightmost
+            self.rotors["II"],  # rotor2 = middle
+            self.rotors["I"],  # rotor3 = slow / leftmost
+            key="AAA",
+            plugs="",
+        )
+        secret = engr.encipher("A" * 26)
+
+        self.assertEqual(secret, "BDZGOWCXLTKSBTMCDLPBMFQOFX")
+
+    def test_double_step_matches_reference(self):
+        # Regression for the double-stepping anomaly (ticket #2): when the
+        # middle rotor sits on its notch, both the middle and the left rotor
+        # advance. Ground position ADU drives the middle rotor (II, notch F)
+        # through its notch within a 30-character message.
+        engr = Enigma(
+            self.reflectors["B"],
+            self.rotors["III"],  # rotor1 = fast / rightmost, position U
+            self.rotors["II"],  # rotor2 = middle, position D
+            self.rotors["I"],  # rotor3 = slow / leftmost, position A
+            key="UDA",
+            plugs="",
+        )
+        secret = engr.encipher("A" * 30)
+
+        self.assertEqual(secret, "EOEZIKERFPOZSVWHCCCKNEWZHKQQQC")
+
     def test_encrypt_length_changing_uppercase(self):
         # Regression: characters whose .upper() changes length (e.g. "ß" -> "SS")
         # used to raise IndexError / silently drop trailing enciphered characters
