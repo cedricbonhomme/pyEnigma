@@ -23,8 +23,17 @@ __license__ = "GPLv3"
 
 import unittest
 
-from pyenigma.rotor import *
-from pyenigma.enigma import *
+from pyenigma.enigma import Enigma
+from pyenigma.rotor import ROTOR_I
+from pyenigma.rotor import ROTOR_II
+from pyenigma.rotor import ROTOR_III
+from pyenigma.rotor import ROTOR_IV
+from pyenigma.rotor import ROTOR_Reflector_A
+from pyenigma.rotor import ROTOR_Reflector_B
+from pyenigma.rotor import ROTOR_Reflector_C
+from pyenigma.rotor import ROTOR_V
+from pyenigma.rotor import ROTOR_VI
+from pyenigma.rotor import ROTOR_VII
 
 
 class TestpyEnigma(unittest.TestCase):
@@ -65,6 +74,29 @@ class TestpyEnigma(unittest.TestCase):
         secret = engr.encipher(message)
 
         self.assertEqual(secret, "Qgqop Vyzxp")
+
+    def test_encrypt_length_changing_uppercase(self):
+        # Regression: characters whose .upper() changes length (e.g. "ß" -> "SS")
+        # used to raise IndexError / silently drop trailing enciphered characters
+        # because case restoration assumed input and output had equal length.
+        message = "Straße"
+
+        engr = Enigma(
+            self.reflectors[self.ref],
+            self.rotors[self.r1],
+            self.rotors[self.r2],
+            self.rotors[self.r3],
+            key=self.key,
+            plugs=self.plugs,
+        )
+        secret = engr.encipher(message)
+
+        # Output is full length (aligned with the uppercased input) and the
+        # original case pattern is preserved across the expansion.
+        self.assertEqual(secret, "Fphuagn")
+        self.assertEqual(len(secret), len(message.upper()))
+        self.assertEqual(secret[0], secret[0].upper())
+        self.assertEqual(secret[1:], secret[1:].lower())
 
 
 if __name__ == "__main__":
